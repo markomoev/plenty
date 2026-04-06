@@ -25,7 +25,7 @@ const pillars = [
   {
     number: "03",
     heading: "Честен Съвет от Реален Човек.",
-    body: "Не алгоритъм. Не 500 ревюта. Консултант с очи, вкус и мнение — само за вас, без натиск.",
+    body: "Не алгоритъм. Не 500 ревюта. Екип с очи, вкус и мнение — само за вас, без натиск.",
   },
 ];
 
@@ -174,7 +174,7 @@ export default function Home() {
           <div className="flex justify-between items-end mb-6">
             <div>
               <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-3">
-                Журнал & Новини
+                Статии & Новини
               </p>
               <h2 className="text-4xl md:text-5xl font-black tracking-[-0.025em] uppercase">
                 Тъкмо Пристигна.<br />Количествата са Ограничени.
@@ -231,20 +231,14 @@ export default function Home() {
               Пет Минути<br />Разходка.<br />Перфектен Стил.
             </h2>
             <p className="text-zinc-400 text-sm leading-relaxed mb-10 max-w-md">
-              Дойдете без план — тръгнете с визия. Нашите консултанти ще ви посрещнат и ще ви помогнат да намерите точно това, което търсите.
+              Дойдете без план — тръгнете с визия. Екипът ни ще ви посрещне и ще ви помогне да намерите точно това, което търсите.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/poseti-ni"
                 className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
               >
-                Планирайте Посещението си
-              </Link>
-              <Link
-                href="/poseti-ni#konsultatsiya"
-                className="border border-white/20 hover:border-white/50 text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
-              >
-                Запазете Консултация
+                Намери Магазина
               </Link>
             </div>
           </div>

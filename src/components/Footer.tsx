@@ -14,7 +14,6 @@ const sections = [
     heading: "Магазин",
     links: [
       { href: "/poseti-ni", label: "Посети Ни" },
-      { href: "/poseti-ni#konsultatsiya", label: "Запази Консултация" },
       { href: "/novini?category=Местни Оферти", label: "Оферти" },
     ],
   },
@@ -37,7 +36,7 @@ export default function Footer() {
               PLENTY
             </Link>
             <p className="text-[11px] tracking-[0.05em] uppercase text-secondary leading-loose mb-4">
-              Мъжки магазин за облекло в Ловеч. Лично стилово консултиране. Качество над количество.
+              Мъжки магазин за облекло в Ловеч. Качество над количество.
             </p>
             <p className="text-[11px] tracking-[0.05em] uppercase text-secondary leading-loose">
               ул. Търговска 15, Ловеч 5500

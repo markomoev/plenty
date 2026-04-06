@@ -4,7 +4,7 @@ import Link from "next/link";
 import { posts, type PostCategory } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Новини & Журнал — PLENTY Ловеч",
+  title: "Новини & Статии — PLENTY Ловеч",
   description:
     "Стилови насоки, нови пристигания и местни оферти от PLENTY — мъжки магазин в Ловеч.",
 };
@@ -31,7 +31,7 @@ export default function NoviniPage() {
       <section className="bg-surface py-20 px-8 md:px-16 lg:px-24 border-b border-surface-dim">
         <div className="max-w-screen-2xl mx-auto">
           <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
-            Журнал
+            Статии
           </p>
           <h1 className="text-5xl md:text-7xl font-black tracking-[-0.03em] uppercase leading-none mb-8">
             НОВИНИ

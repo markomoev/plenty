@@ -102,7 +102,7 @@ export default async function SinglePostPage({ params }: Props) {
         <section className="bg-surface-container-low py-20 px-8 md:px-16 lg:px-24">
           <div className="max-w-screen-2xl mx-auto">
             <h2 className="text-2xl font-black uppercase tracking-[-0.01em] mb-12">
-              Още от Журнала
+              Още статии
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {otherPosts.map((p) => (

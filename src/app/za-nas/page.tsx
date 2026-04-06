@@ -99,8 +99,8 @@ export default function ZaNasPage() {
             {values.map((v, i) => (
               <div
                 key={v.number}
-                className={`pt-12 pb-12 pr-0 md:pr-16 border-b border-surface-dim ${
-                  i % 2 === 0 ? "md:border-r md:border-surface-dim" : ""
+                className={`pt-12 pb-12 border-b border-surface-dim ${
+                  i % 2 === 0 ? "md:border-r md:border-surface-dim md:pr-16" : "md:pl-16"
                 } ${i >= values.length - 2 ? "md:border-b-0" : ""} ${
                   i === values.length - 1 ? "border-b-0" : ""
                 }`}
@@ -118,39 +118,78 @@ export default function ZaNasPage() {
         </div>
       </section>
 
-      {/* Detail image + consultation CTA */}
-      <section className="bg-surface py-24 px-8 md:px-16 lg:px-24">
-        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-6">
-              Лично Консултиране
+      {/* Map & location */}
+      <section className="bg-surface-container-low py-24 px-8 md:px-16 lg:px-24">
+        <div className="max-w-screen-2xl mx-auto">
+          <div className="mb-12">
+            <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
+              Намерете Ни
             </p>
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-[-0.02em] mb-8 leading-tight">
-              Безплатна Стилова Консултация
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-[-0.025em]">
+              Адрес
             </h2>
-            <div className="space-y-5 text-[15px] leading-[1.8] text-secondary mb-10">
-              <p>
-                Не знаете откъде да започнете? Имате специален повод и търсите точния ансамбъл? Искате да обновите гардероба си, но не искате да сбъркате?
-              </p>
-              <p>
-                Нашата консултация е безплатна и без ангажимент. Просто елате, разкажете ни за себе си и ние ще направим останалото.
-              </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+            {/* Info panel */}
+            <div className="bg-inverse-surface text-white p-10 flex flex-col justify-between">
+              <div className="space-y-8">
+                <div>
+                  <p className="text-[10px] tracking-[0.3em] uppercase opacity-50 font-bold mb-2">Адрес</p>
+                  <p className="text-lg font-black uppercase leading-snug">
+                    ул. Търговска 58<br />Ловеч, България
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.3em] uppercase opacity-50 font-bold mb-2">Работно Време</p>
+                  <p className="text-sm leading-relaxed opacity-80">
+                    Пон — Пет: 10:00 – 19:00<br />
+                    Събота: 10:00 – 17:00<br />
+                    Неделя: затворено
+                  </p>
+                </div>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=ул.+Търговска+58,+Ловеч,+България"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-block border border-white text-white px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors duration-300"
+              >
+                Отвори в Google Maps ↗
+              </a>
             </div>
-            <Link
-              href="/poseti-ni#konsultatsiya"
-              className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 inline-block"
-            >
-              Запази Консултация
-            </Link>
+            {/* Interactive map */}
+            <div className="md:col-span-2 h-[420px] md:h-auto min-h-[420px]">
+              <iframe
+                src="https://maps.google.com/maps?q=ул.+Търговска+58,+Ловеч,+България&output=embed&z=17"
+                width="100%"
+                height="100%"
+                className="w-full h-full border-0"
+                loading="lazy"
+                title="Местоположение на PLENTY Ловеч"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
-          <div className="relative aspect-[4/3] bg-surface-container overflow-hidden">
-            <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Ol9e1NY3uruHTAkdKjEHNvpqGz7gY0-VvhGw_KQ9IQOMyevPMlzR96A99aSzABx0sOM5Okl8fz2vWJuSsQo4c5AhGhCeB1GnDI2eh-HiaKxHafEwb-fO6xpGAhCMmXhBSKeQCbuqa10NQ8NWpH0SlQbKEWuXD6UmU9ir62qI5-gsuo2dT97fsTsFuKa9g7tQD3dfLoTEkvOawaJMPcu9Y_eRvhbjvwl_fgddjso0YgyZFFMgZCNsIHedHVAMiNU-tx11YuuucoNE"
-              alt="Детайл на качеството"
-              fill
-              className="object-cover"
-            />
+        </div>
+      </section>
+
+      {/* Visit CTA */}
+      <section className="bg-inverse-surface text-white py-24 px-8 md:px-16 lg:px-24">
+        <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+          <div>
+            <p className="text-[10px] tracking-[0.35em] uppercase font-bold opacity-50 mb-3">
+              Ловеч, ул. Търговска 58
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
+              Елате Да Ни Посетите
+            </h2>
           </div>
+          <Link
+            href="/poseti-ni"
+            className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 shrink-0"
+          >
+            Намери Магазина
+          </Link>
         </div>
       </section>
     </>

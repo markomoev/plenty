@@ -24,11 +24,10 @@ export default function KolektsiiPage() {
             </h1>
           </div>
           <p className="text-secondary text-sm leading-relaxed max-w-sm font-medium">
-            Вдъхновение, не каталог. Всеки ансамбъл може да бъде нагоден за вас с помощта на нашите консултанти.{" "}
+            Вдъхновение, не каталог. Всеки ансамбъл може да бъде нагоден за вас.{" "}
             <Link href="/poseti-ni" className="text-primary font-bold hover:underline">
-              Посетете ни
-            </Link>{" "}
-            за безплатна консултация.
+              Елате да го пробвате.
+            </Link>
           </p>
         </div>
       </section>
@@ -87,20 +86,12 @@ export default function KolektsiiPage() {
               Елате и го Пробвайте
             </h2>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/poseti-ni"
-              className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 text-center"
-            >
-              Намери Магазина
-            </Link>
-            <Link
-              href="/poseti-ni#konsultatsiya"
-              className="border border-white/25 hover:bg-white/10 text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 text-center"
-            >
-              Запази Консултация
-            </Link>
-          </div>
+          <Link
+            href="/poseti-ni"
+            className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 text-center"
+          >
+            Намери Магазина
+          </Link>
         </div>
       </section>
     </>

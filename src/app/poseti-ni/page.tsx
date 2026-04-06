@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Посети Ни — PLENTY Ловеч",
   description:
-    "Без записване. Без чакане. Намерете магазин PLENTY в центъра на Ловеч — адрес, работно време и безплатна стилова консултация.",
+    "Намерете магазин PLENTY в центъра на Ловеч — адрес, работно време и как да стигнете до нас.",
 };
 
 const hours = [
@@ -24,7 +24,7 @@ const comparison = [
   },
   {
     problem: "Безлични продавачи в мол",
-    solution: "Личен консултант само за вас",
+    solution: "Внимателен екип, готов да помогне",
   },
   {
     problem: "Поръчаш онлайн — чакаш — грешен размер",
@@ -155,88 +155,6 @@ export default function PosetiNiPage() {
           >
             Отвори в Google Maps
           </a>
-        </div>
-      </section>
-
-      {/* ── Consultation Form ─────────────────────────────────────── */}
-      <section
-        id="konsultatsiya"
-        className="bg-surface py-24 px-8 md:px-16 lg:px-24"
-      >
-        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          <div>
-            <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
-              Безплатно & Без Ангажимент
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-[-0.025em] leading-tight mb-8">
-              Запазете 30 Минути<br />Само за Вас
-            </h2>
-            <p className="text-secondary text-sm leading-relaxed mb-6 max-w-md">
-              Кажете ни повода. Ние намираме визията.
-            </p>
-            <p className="text-secondary text-sm leading-relaxed max-w-md">
-              Нашата консултация е 30 минути само за вас — без тълпа, без бързане. Казвате ни повода, фигурата и бюджета. Ние подбираме варианти, вие ги пробвате. Толкова просто.
-            </p>
-          </div>
-
-          <form className="space-y-0 pt-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-              <div className="border-b-2 border-surface-dim focus-within:border-primary transition-colors duration-200">
-                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary pt-6 pb-1">
-                  Вашето Име
-                </label>
-                <input
-                  type="text"
-                  className="w-full bg-transparent border-none text-sm font-bold py-3 focus:outline-none text-on-surface placeholder:text-secondary/30"
-                  placeholder="Иван Петров"
-                />
-              </div>
-              <div className="border-b-2 border-surface-dim focus-within:border-primary transition-colors duration-200">
-                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary pt-6 pb-1">
-                  Телефон
-                </label>
-                <input
-                  type="tel"
-                  className="w-full bg-transparent border-none text-sm font-bold py-3 focus:outline-none text-on-surface placeholder:text-secondary/30"
-                  placeholder="+359 8XX XXX XXX"
-                />
-              </div>
-            </div>
-
-            <div className="border-b-2 border-surface-dim focus-within:border-primary transition-colors duration-200">
-              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary pt-6 pb-1">
-                Имейл
-              </label>
-              <input
-                type="email"
-                className="w-full bg-transparent border-none text-sm font-bold py-3 focus:outline-none text-on-surface placeholder:text-secondary/30"
-                placeholder="ivan@example.com"
-              />
-            </div>
-
-            <div className="border-b-2 border-surface-dim focus-within:border-primary transition-colors duration-200">
-              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary pt-6 pb-1">
-                Поводът / Какво Търсите
-              </label>
-              <textarea
-                rows={4}
-                className="w-full bg-transparent border-none text-sm font-bold py-3 focus:outline-none text-on-surface placeholder:text-secondary/30 resize-none"
-                placeholder="Напр. Търся сако за сватба или искам да обновя целия гардероб"
-              />
-            </div>
-
-            <div className="pt-8">
-              <button
-                type="submit"
-                className="bg-primary hover:bg-primary-dark text-white px-12 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
-              >
-                Запазете Консултация
-              </button>
-              <p className="text-[10px] uppercase tracking-widest text-secondary mt-4">
-                Ще се свържем с вас до края на работния ден.
-              </p>
-            </div>
-          </form>
         </div>
       </section>
 
