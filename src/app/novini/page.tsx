@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 const categories: PostCategory[] = [
   "Стилови Насоки",
-  "Нови Пристигания",
-  "Местни Оферти",
+  "За Магазина",
+  "Съвети",
 ];
 
 const categoryColors: Record<PostCategory, string> = {
-  "Стилови Насоки": "text-on-surface",
-  "Нови Пристигания": "text-primary",
-  "Местни Оферти": "text-primary",
+  "Стилови Насоки": "text-primary",
+  "За Магазина": "text-on-surface",
+  "Съвети": "text-primary",
 };
 
 export default function NoviniPage() {

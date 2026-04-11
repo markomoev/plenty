@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/kolektsii", label: "Колекции" },
   { href: "/novini", label: "Новини" },
   { href: "/za-nas", label: "За Нас" },
 ];

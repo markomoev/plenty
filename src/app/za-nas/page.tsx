@@ -56,8 +56,8 @@ export default function ZaNasPage() {
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] bg-surface-container overflow-hidden">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1RXUO5hUXGJ5tAdBk04qikKxH9uadWyaw5-Iofbc1_sHlR1mtLdtvF2OFQL-JxbzlIn1yOTBcWumKlYdiyCMa-ZiKKVbbG1dMhe5DNamQF11zksIyxNag8YBuZZKIXkviCvtsRp3bevBl0RT8bu-yBRZqwgRj6Zdzj83ba6VnKLXxgXVf3734tjYQ7jsQ4-pFC6-m0ESiqtyB_ahEQKOozyBqQu5VVxFvgvRLpFn5mC5OoEZWuhVoQR6q9JnnHIt-LPMJwl12qHM"
-              alt="Магазин PLENTY Ловеч"
+              src="/store/IMG_9048.JPG"
+              alt="Интериор на магазин PLENTY Ловеч"
               fill
               className="object-cover"
             />

@@ -4,9 +4,9 @@ import Link from "next/link";
 import { looks } from "@/lib/looks";
 
 export const metadata: Metadata = {
-  title: "Колекции — PLENTY Ловеч",
+  title: "Стил & Вдъхновение — PLENTY Ловеч",
   description:
-    "Лукбук Пролет/Лято 2026. Вдъхновение за мъжки стил от магазин PLENTY в Ловеч.",
+    "Вдъхновение за мъжки стил от магазин PLENTY в Ловеч. Ансамбли, подбрани от нашия екип.",
 };
 
 export default function KolektsiiPage() {
@@ -17,16 +17,16 @@ export default function KolektsiiPage() {
         <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
-              Сезон Пролет / Лято 2026
+              Стил & Вдъхновение
             </p>
             <h1 className="text-5xl md:text-7xl font-black tracking-[-0.03em] uppercase leading-none">
-              ЛУКБУК
+              ВИЗИИ
             </h1>
           </div>
           <p className="text-secondary text-sm leading-relaxed max-w-sm font-medium">
-            Вдъхновение, не каталог. Всеки ансамбъл може да бъде нагоден за вас.{" "}
+            Ансамбли, подбрани от нашия екип като вдъхновение — не каталог. Всяка визия е отправна точка, която адаптираме спрямо вас.{" "}
             <Link href="/poseti-ni" className="text-primary font-bold hover:underline">
-              Елате да го пробвате.
+              Елате да поговорим.
             </Link>
           </p>
         </div>
@@ -80,17 +80,20 @@ export default function KolektsiiPage() {
         <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <div>
             <p className="text-[10px] tracking-[0.35em] uppercase font-bold opacity-50 mb-3">
-              Харесахте нещо?
+              Персонална Стилова Консултация
             </p>
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
-              Елате и го Пробвайте
+              Намерете Вашата Визия
             </h2>
+            <p className="text-zinc-400 text-sm mt-4 max-w-md leading-relaxed">
+              Нашият екип ще ви помогне да изградите стил, съобразен с вашата личност — без натиск, с търпение и реален съвет.
+            </p>
           </div>
           <Link
             href="/poseti-ni"
-            className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 text-center"
+            className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 text-center shrink-0"
           >
-            Намери Магазина
+            Посетете Ни
           </Link>
         </div>
       </section>
