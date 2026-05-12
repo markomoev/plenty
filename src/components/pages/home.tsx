@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { posts } from "@/lib/posts";
 import { useLanguage } from "@/contexts/language";
 
 export function HomePage() {
   const { t } = useLanguage();
-  const latestPosts = posts.slice(0, 3);
 
   const mapsUrl =
     "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+58,+Ловеч,+България";
@@ -36,10 +34,10 @@ export function HomePage() {
               {t.home.cta_about}
             </Link>
             <Link
-              href="/visit"
+              href="/contact"
               className="border border-on-surface/20 hover:border-on-surface/50 text-on-surface px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
             >
-              {t.home.cta_visit}
+              {t.home.cta_contact}
             </Link>
           </div>
         </div>
@@ -298,44 +296,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── Blog Preview ──────────────────────────────────────────── */}
-      <section className="bg-surface py-24 px-8 md:px-16 lg:px-24">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
-            <div>
-              <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-3">
-                {t.home.blog_eyebrow}
-              </p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.025em] uppercase whitespace-nowrap">
-                {t.home.blog_title}
-              </h2>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-surface-dim">
-            {latestPosts.map((post) => (
-              <div
-                key={post.slug}
-                className="pt-10 pb-10 md:px-10 first:md:pl-0 last:md:pr-0 border-b md:border-b-0 md:border-r border-surface-dim last:border-r-0 last:border-b-0"
-              >
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary block mb-4">
-                  {post.category}
-                </span>
-                <p className="text-[10px] uppercase tracking-widest text-secondary mb-4">
-                  {post.date}
-                </p>
-                <h3 className="font-bold text-base uppercase tracking-tight leading-tight mb-4">
-                  {post.title}
-                </h3>
-                <p className="text-secondary text-sm leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Final Visit CTA ───────────────────────────────────────── */}
+      {/* ── Final CTA ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden text-white py-28 px-8 md:px-16 lg:px-24">
         <Image
           src="/store/img_9057-rework.png"
@@ -360,7 +321,7 @@ export function HomePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/visit"
+                href="/contact"
                 className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
               >
                 {t.home.cta_find}

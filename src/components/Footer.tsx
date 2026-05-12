@@ -11,9 +11,8 @@ export default function Footer() {
       heading: t.footer.nav,
       links: [
         { href: "/", label: t.nav.home },
-        { href: "/news", label: t.nav.news },
         { href: "/about", label: t.nav.about },
-        { href: "/visit", label: t.nav.visit },
+        { href: "/contact", label: t.nav.contact },
       ],
     },
     {

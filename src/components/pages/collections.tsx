@@ -23,7 +23,7 @@ export function CollectionsPage() {
           </div>
           <p className="text-secondary text-sm leading-relaxed max-w-sm font-medium">
             {t.collections.header_body}{" "}
-            <Link href="/visit" className="text-primary font-bold hover:underline">
+            <Link href="/contact" className="text-primary font-bold hover:underline">
               {t.collections.header_cta}
             </Link>
           </p>
@@ -87,7 +87,7 @@ export function CollectionsPage() {
             </p>
           </div>
           <Link
-            href="/visit"
+            href="/contact"
             className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 text-center shrink-0"
           >
             {t.collections.cta_button}

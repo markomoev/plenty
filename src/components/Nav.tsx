@@ -12,8 +12,8 @@ export default function Nav() {
 
   const links = [
     { href: "/", label: t.nav.home },
-    { href: "/news", label: t.nav.news },
     { href: "/about", label: t.nav.about },
+    { href: "/contact", label: t.nav.contact },
   ];
 
   const isActive = (href: string) =>
@@ -64,8 +64,8 @@ export default function Nav() {
           </Link>
         </div>
 
-        {/* Right side: language toggle + CTA */}
-        <div className="hidden md:flex flex-1 justify-end items-center gap-4">
+        {/* Right: language toggle */}
+        <div className="hidden md:flex flex-1 justify-end">
           <button
             onClick={() => setLang(lang === "bg" ? "en" : "bg")}
             className="text-[10px] font-black uppercase tracking-[0.15em] text-secondary hover:text-on-surface transition-colors duration-200 border border-white/10 hover:border-white/30 px-3 py-1.5"
@@ -73,12 +73,6 @@ export default function Nav() {
           >
             {lang === "bg" ? "EN" : "БГ"}
           </button>
-          <Link
-            href="/visit"
-            className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
-          >
-            {t.nav.visit}
-          </Link>
         </div>
       </div>
 
@@ -97,13 +91,6 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/visit"
-            onClick={() => setMenuOpen(false)}
-            className="text-[11px] font-black uppercase tracking-[0.18em] text-primary"
-          >
-            {t.nav.visit} →
-          </Link>
           <button
             onClick={() => { setLang(lang === "bg" ? "en" : "bg"); setMenuOpen(false); }}
             className="text-[10px] font-black uppercase tracking-[0.15em] text-secondary text-left"

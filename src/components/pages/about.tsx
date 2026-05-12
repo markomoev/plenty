@@ -14,9 +14,6 @@ export function AboutPage() {
     { number: "04", title: t.about.v4_title, body: t.about.v4_body },
   ];
 
-  const mapsUrl =
-    "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+58,+Ловеч,+България";
-
   return (
     <>
       {/* Header */}
@@ -93,74 +90,14 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Map & location */}
-      <section className="bg-surface-container-low py-24 px-8 md:px-16 lg:px-24">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-12">
-            <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
-              {t.about.map_eyebrow}
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-[-0.025em]">
-              {t.about.map_title}
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            <div className="bg-inverse-surface text-white p-10 flex flex-col justify-between">
-              <div className="space-y-8">
-                <div>
-                  <p className="text-[10px] tracking-[0.3em] uppercase opacity-50 font-bold mb-2">
-                    {t.about.address_label}
-                  </p>
-                  <p className="text-lg font-black uppercase leading-snug whitespace-pre-line">
-                    {t.about.address_value}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] tracking-[0.3em] uppercase opacity-50 font-bold mb-2">
-                    {t.about.hours_label}
-                  </p>
-                  <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line">
-                    {t.about.hours_value}
-                  </p>
-                </div>
-              </div>
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-block border border-white text-white px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors duration-300"
-              >
-                {t.about.open_maps}
-              </a>
-            </div>
-            <div className="md:col-span-2 h-[420px] md:h-auto min-h-[420px]">
-              <iframe
-                src="https://maps.google.com/maps?q=ул.+Търговска+58,+Ловеч,+България&output=embed&z=17"
-                width="100%"
-                height="100%"
-                className="w-full h-full border-0"
-                loading="lazy"
-                title="PLENTY Lovech location"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Visit CTA */}
+      {/* CTA */}
       <section className="bg-inverse-surface text-white py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-          <div>
-            <p className="text-[10px] tracking-[0.35em] uppercase font-bold opacity-50 mb-3">
-              {t.about.cta_eyebrow}
-            </p>
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
-              {t.about.cta_title}
-            </h2>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
+            {t.about.cta_title}
+          </h2>
           <Link
-            href="/visit"
+            href="/contact"
             className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 shrink-0"
           >
             {t.about.cta_button}
