@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/contexts/language";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,9 +12,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PLENTY — Модерният Патриарх",
+  title: "PLENTY — Мъжки Магазин в Ловеч",
   description:
-    "Мъжки магазин за облекло в Ловеч. Качествени колекции, внимателен екип и редакционен поглед върху мъжката мода.",
+    "Семеен магазин за мъжко облекло в центъра на Ловеч. Внимателно подбрани марки, честен стилов съвет и обслужване, което помни кои сте.",
 };
 
 export default function RootLayout({
@@ -24,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="bg">
       <body className={`${inter.variable} antialiased`}>
-        <Nav />
-        <div className="pt-20">{children}</div>
-        <Footer />
+        <LanguageProvider>
+          <Nav />
+          <div className="pt-20">{children}</div>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

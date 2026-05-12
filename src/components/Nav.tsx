@@ -3,15 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const links = [
-  { href: "/novini", label: "Новини" },
-  { href: "/za-nas", label: "За Нас" },
-];
+import { useLanguage } from "@/contexts/language";
 
 export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const links = [
+    { href: "/", label: t.nav.home },
+    { href: "/news", label: t.nav.news },
+    { href: "/about", label: t.nav.about },
+  ];
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="fixed top-0 w-full z-50 h-20 bg-black/80 backdrop-blur-xl border-b border-white/[0.06]">
@@ -23,7 +29,7 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               className={`text-[11px] font-bold uppercase tracking-[0.18em] transition-colors duration-200 pb-1 ${
-                pathname.startsWith(link.href)
+                isActive(link.href)
                   ? "text-primary border-b-2 border-primary"
                   : "text-secondary hover:text-on-surface"
               }`}
@@ -37,7 +43,7 @@ export default function Nav() {
         <button
           className="md:hidden p-2 -ml-2 text-on-surface"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Меню"
+          aria-label="Menu"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {menuOpen ? (
@@ -58,13 +64,20 @@ export default function Nav() {
           </Link>
         </div>
 
-        {/* Right CTA */}
-        <div className="hidden md:flex flex-1 justify-end">
+        {/* Right side: language toggle + CTA */}
+        <div className="hidden md:flex flex-1 justify-end items-center gap-4">
+          <button
+            onClick={() => setLang(lang === "bg" ? "en" : "bg")}
+            className="text-[10px] font-black uppercase tracking-[0.15em] text-secondary hover:text-on-surface transition-colors duration-200 border border-white/10 hover:border-white/30 px-3 py-1.5"
+            aria-label="Switch language"
+          >
+            {lang === "bg" ? "EN" : "БГ"}
+          </button>
           <Link
-            href="/poseti-ni"
+            href="/visit"
             className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
           >
-            Посети Ни
+            {t.nav.visit}
           </Link>
         </div>
       </div>
@@ -78,19 +91,25 @@ export default function Nav() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={`text-[11px] font-bold uppercase tracking-[0.18em] ${
-                pathname.startsWith(link.href) ? "text-primary" : "text-secondary"
+                isActive(link.href) ? "text-primary" : "text-secondary"
               }`}
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="/poseti-ni"
+            href="/visit"
             onClick={() => setMenuOpen(false)}
             className="text-[11px] font-black uppercase tracking-[0.18em] text-primary"
           >
-            Посети Ни →
+            {t.nav.visit} →
           </Link>
+          <button
+            onClick={() => { setLang(lang === "bg" ? "en" : "bg"); setMenuOpen(false); }}
+            className="text-[10px] font-black uppercase tracking-[0.15em] text-secondary text-left"
+          >
+            {lang === "bg" ? "Switch to English" : "Смени на Български"}
+          </button>
         </div>
       )}
     </header>
