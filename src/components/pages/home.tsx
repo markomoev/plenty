@@ -3,30 +3,54 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/language";
+import { AnimateIn } from "@/components/AnimateIn";
 
 export function HomePage() {
   const { t } = useLanguage();
 
   const mapsUrl =
-    "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+58,+Ловеч,+България";
+    "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+60,+Ловеч,+България";
 
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="min-h-[calc(100vh-80px)] bg-surface flex flex-col justify-end pb-20 px-10 md:px-24">
-        <div className="max-w-screen-2xl mx-auto w-full">
-          <p className="text-[10px] tracking-[0.35em] uppercase mb-6 font-bold text-secondary">
+      <section className="relative min-h-[calc(100vh-80px)] bg-surface flex flex-col justify-end overflow-hidden pb-20 px-10 md:px-24">
+        <div className="absolute inset-0">
+          <Image
+            src="/store/IMG_9065.JPG"
+            alt="Интериор на PLENTY в Ловеч"
+            fill
+            className="object-cover opacity-45"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-black/55 via-black/65 to-black/90" />
+        </div>
+        <div className="relative z-10 max-w-screen-2xl mx-auto w-full">
+          <p
+            className="hero-line text-[10px] tracking-[0.35em] uppercase mb-6 font-bold text-secondary"
+            style={{ animationDelay: "0ms" }}
+          >
             {t.home.eyebrow}
           </p>
-          <h1 className="text-6xl md:text-8xl lg:text-[110px] font-black tracking-[-0.03em] mb-6 leading-[0.92] uppercase text-on-surface">
+          <h1
+            className="hero-line text-6xl md:text-8xl lg:text-[110px] font-black tracking-[-0.03em] mb-6 leading-[0.92] uppercase text-on-surface"
+            style={{ animationDelay: "120ms" }}
+          >
             {t.home.hero_title_1}
             <br />
             {t.home.hero_title_2}
           </h1>
-          <p className="text-secondary text-base md:text-lg mb-12 max-w-lg leading-relaxed">
+          <p
+            className="hero-line text-secondary text-base md:text-lg mb-12 max-w-lg leading-relaxed"
+            style={{ animationDelay: "300ms" }}
+          >
             {t.home.hero_body}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div
+            className="hero-line flex flex-wrap gap-4"
+            style={{ animationDelay: "460ms" }}
+          >
             <Link
               href="/about"
               className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300"
@@ -63,7 +87,7 @@ export function HomePage() {
       {/* ── Philosophy ────────────────────────────────────────────── */}
       <section className="bg-surface py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-20">
+          <AnimateIn className="mb-20">
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
               {t.home.pillars_eyebrow}
             </p>
@@ -75,15 +99,16 @@ export function HomePage() {
             <p className="text-secondary text-base mt-6 max-w-xl leading-relaxed">
               {t.home.pillars_body}
             </p>
-          </div>
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-surface-dim">
             {[
               { num: "01", title: t.home.pillar1_title, body: t.home.pillar1_body },
               { num: "02", title: t.home.pillar2_title, body: t.home.pillar2_body },
               { num: "03", title: t.home.pillar3_title, body: t.home.pillar3_body },
-            ].map((p) => (
-              <div
+            ].map((p, i) => (
+              <AnimateIn
                 key={p.num}
+                delay={i * 100}
                 className="pt-12 pb-12 md:px-12 first:md:pl-0 last:md:pr-0 border-b md:border-b-0 md:border-r border-surface-dim last:border-r-0 last:border-b-0"
               >
                 <span className="text-[11px] font-black tracking-[0.3em] text-primary uppercase block mb-8">
@@ -91,7 +116,7 @@ export function HomePage() {
                 </span>
                 <h3 className="text-xl font-black uppercase tracking-[-0.01em] mb-5">{p.title}</h3>
                 <p className="text-secondary text-sm leading-relaxed">{p.body}</p>
-              </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -100,7 +125,7 @@ export function HomePage() {
       {/* ── Store Gallery ─────────────────────────────────────────── */}
       <section className="bg-surface-container-low py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-12">
+          <AnimateIn className="mb-12">
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-3">
               {t.home.gallery_eyebrow}
             </p>
@@ -112,9 +137,8 @@ export function HomePage() {
             <p className="text-secondary text-sm mt-6 max-w-lg leading-relaxed">
               {t.home.gallery_body}
             </p>
-          </div>
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[280px] gap-2 mb-12">
-            {/* tall, spans 2 rows */}
             <a
               href={mapsUrl}
               target="_blank"
@@ -137,7 +161,6 @@ export function HomePage() {
                 </p>
               </div>
             </a>
-            {/* wide */}
             <a
               href={mapsUrl}
               target="_blank"
@@ -160,7 +183,6 @@ export function HomePage() {
                 </p>
               </div>
             </a>
-            {/* wide, row 2 */}
             <a
               href={mapsUrl}
               target="_blank"
@@ -183,7 +205,6 @@ export function HomePage() {
                 </p>
               </div>
             </a>
-            {/* half */}
             <a
               href={mapsUrl}
               target="_blank"
@@ -206,7 +227,6 @@ export function HomePage() {
                 </p>
               </div>
             </a>
-            {/* half */}
             <a
               href={mapsUrl}
               target="_blank"
@@ -236,18 +256,19 @@ export function HomePage() {
       {/* ── Map & Location ────────────────────────────────────────── */}
       <section className="bg-surface py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-12">
+          <AnimateIn className="mb-12">
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-3">
               {t.home.map_eyebrow}
             </p>
             <h2 className="text-4xl md:text-5xl font-black tracking-[-0.025em] uppercase">
               {t.home.map_title_1}
-              <br />
+              <br className="md:hidden" />
+              <span className="hidden md:inline"> </span>
               {t.home.map_title_2}
             </h2>
-          </div>
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            <div className="bg-inverse-surface text-white p-10 flex flex-col justify-between">
+            <AnimateIn delay={80} className="bg-inverse-surface text-white p-10 flex flex-col justify-between">
               <div className="space-y-8">
                 <div>
                   <p className="text-[10px] tracking-[0.3em] uppercase opacity-50 font-bold mb-2">
@@ -280,10 +301,10 @@ export function HomePage() {
               >
                 {t.home.open_maps}
               </a>
-            </div>
+            </AnimateIn>
             <div className="md:col-span-2 h-[420px] md:h-auto min-h-[420px]">
               <iframe
-                src="https://maps.google.com/maps?q=ул.+Търговска+58,+Ловеч,+България&output=embed&z=17"
+                src="https://maps.google.com/maps?q=ул.+Търговска+60,+Ловеч,+България&output=embed&z=17"
                 width="100%"
                 height="100%"
                 className="w-full h-full border-0"
@@ -307,7 +328,7 @@ export function HomePage() {
         />
         <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/75 to-black/40" />
         <div className="relative z-10 max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
+          <AnimateIn>
             <p className="text-[10px] tracking-[0.35em] uppercase font-bold opacity-50 mb-4">
               {t.home.cta_eyebrow}
             </p>
@@ -333,8 +354,8 @@ export function HomePage() {
                 {t.home.cta_about_us}
               </Link>
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-6">
+          </AnimateIn>
+          <AnimateIn delay={150} className="grid grid-cols-2 gap-6">
             {[
               { label: t.home.cta_address, value: t.home.cta_address_val },
               { label: t.home.cta_phone, value: t.home.cta_phone_val },
@@ -350,7 +371,7 @@ export function HomePage() {
                 </p>
               </div>
             ))}
-          </div>
+          </AnimateIn>
         </div>
       </section>
     </>

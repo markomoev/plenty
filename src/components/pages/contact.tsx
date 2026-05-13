@@ -1,11 +1,12 @@
 "use client";
 
 import { useLanguage } from "@/contexts/language";
+import { AnimateIn } from "@/components/AnimateIn";
 
 export function ContactPage() {
   const { t } = useLanguage();
 
-  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+58,+Ловеч,+България";
+  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+60,+Ловеч,+България";
 
   return (
     <>
@@ -13,14 +14,23 @@ export function ContactPage() {
       <section className="bg-inverse-surface text-white py-28 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
           <div>
-            <p className="text-[10px] tracking-[0.35em] uppercase font-bold opacity-40 mb-4">
+            <p
+              className="hero-line text-[10px] tracking-[0.35em] uppercase font-bold opacity-40 mb-4"
+              style={{ animationDelay: "0ms" }}
+            >
               {t.contact.eyebrow}
             </p>
-            <h1 className="text-5xl md:text-7xl font-black tracking-[-0.03em] uppercase leading-none">
+            <h1
+              className="hero-line text-5xl md:text-7xl font-black tracking-[-0.03em] uppercase leading-none"
+              style={{ animationDelay: "100ms" }}
+            >
               {t.contact.page_title}
             </h1>
           </div>
-          <p className="text-zinc-400 text-base leading-relaxed max-w-md">
+          <p
+            className="hero-line text-zinc-400 text-base leading-relaxed max-w-md"
+            style={{ animationDelay: "200ms" }}
+          >
             {t.contact.header_body}
           </p>
         </div>
@@ -31,7 +41,7 @@ export function ContactPage() {
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {/* Info panel */}
-            <div className="bg-inverse-surface text-white p-10 flex flex-col justify-between">
+            <AnimateIn delay={80} className="bg-inverse-surface text-white p-10 flex flex-col justify-between">
               <div className="space-y-10">
                 <div>
                   <p className="text-[10px] tracking-[0.3em] uppercase opacity-50 font-bold mb-3">
@@ -73,12 +83,12 @@ export function ContactPage() {
               >
                 {t.contact.open_maps}
               </a>
-            </div>
+            </AnimateIn>
 
             {/* Map */}
             <div className="md:col-span-2 h-[480px] md:h-auto min-h-[480px]">
               <iframe
-                src="https://maps.google.com/maps?q=ул.+Търговска+58,+Ловеч,+България&output=embed&z=17"
+                src="https://maps.google.com/maps?q=ул.+Търговска+60,+Ловеч,+България&output=embed&z=17"
                 width="100%"
                 height="100%"
                 className="w-full h-full border-0"

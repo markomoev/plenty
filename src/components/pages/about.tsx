@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/language";
+import { AnimateIn } from "@/components/AnimateIn";
 
 export function AboutPage() {
   const { t } = useLanguage();
@@ -20,29 +21,40 @@ export function AboutPage() {
       <section className="bg-inverse-surface text-white py-28 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
           <div>
-            <p className="text-[10px] tracking-[0.35em] uppercase font-bold opacity-50 mb-4">
+            <p
+              className="hero-line text-[10px] tracking-[0.35em] uppercase font-bold opacity-50 mb-4"
+              style={{ animationDelay: "0ms" }}
+            >
               {t.about.eyebrow}
             </p>
-            <h1 className="text-5xl md:text-7xl font-black tracking-[-0.03em] uppercase leading-none">
+            <h1
+              className="hero-line text-5xl md:text-7xl font-black tracking-[-0.03em] uppercase leading-none"
+              style={{ animationDelay: "100ms" }}
+            >
               {t.about.page_title}
             </h1>
           </div>
-          <p className="text-zinc-400 text-base leading-relaxed max-w-lg">{t.about.header_body}</p>
+          <p
+            className="hero-line text-zinc-400 text-base leading-relaxed max-w-lg"
+            style={{ animationDelay: "260ms" }}
+          >
+            {t.about.header_body}
+          </p>
         </div>
       </section>
 
       {/* Story section */}
       <section className="bg-surface py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-[4/5] bg-surface-container overflow-hidden">
+          <AnimateIn className="relative aspect-[4/5] bg-surface-container overflow-hidden">
             <Image
               src="/store/IMG_9048.JPG"
               alt="PLENTY store interior Lovech"
               fill
               className="object-cover"
             />
-          </div>
-          <div>
+          </AnimateIn>
+          <AnimateIn delay={100}>
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-6">
               {t.about.story_eyebrow}
             </p>
@@ -54,25 +66,26 @@ export function AboutPage() {
               <p>{t.about.story_p2}</p>
               <p>{t.about.story_p3}</p>
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </section>
 
       {/* Values */}
       <section className="bg-surface-container-low py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-16">
+          <AnimateIn className="mb-16">
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
               {t.about.values_eyebrow}
             </p>
             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-[-0.025em]">
               {t.about.values_title}
             </h2>
-          </div>
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-surface-dim">
             {values.map((v, i) => (
-              <div
+              <AnimateIn
                 key={v.number}
+                delay={i * 80}
                 className={`pt-12 pb-12 border-b border-surface-dim ${
                   i % 2 === 0 ? "md:border-r md:border-surface-dim md:pr-16" : "md:pl-16"
                 } ${i >= values.length - 2 ? "md:border-b-0" : ""} ${
@@ -84,7 +97,7 @@ export function AboutPage() {
                 </span>
                 <h3 className="text-xl font-black uppercase tracking-[-0.01em] mb-4">{v.title}</h3>
                 <p className="text-secondary text-sm leading-relaxed">{v.body}</p>
-              </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -92,7 +105,7 @@ export function AboutPage() {
 
       {/* CTA */}
       <section className="bg-inverse-surface text-white py-24 px-8 md:px-16 lg:px-24">
-        <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+        <AnimateIn className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
             {t.about.cta_title}
           </h2>
@@ -102,7 +115,7 @@ export function AboutPage() {
           >
             {t.about.cta_button}
           </Link>
-        </div>
+        </AnimateIn>
       </section>
     </>
   );

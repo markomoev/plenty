@@ -8,7 +8,7 @@ export const translations = {
       contact: "Контакти",
     },
     footer: {
-      tagline: "Мъжки магазин на пазара в Ловеч.",
+      tagline: "Магазин за дрехи на пазара в Ловеч.",
       address: "Търговска 60, Ловеч 5500",
       nav: "Навигация",
       social: "Социални Мрежи",
@@ -17,14 +17,14 @@ export const translations = {
     },
     home: {
       eyebrow: "Ловеч, България",
-      hero_title_1: "МЪЖКИ",
-      hero_title_2: "МАГАЗИН",
+      hero_title_1: "МАГАЗИН",
+      hero_title_2: "ЗА ДРЕХИ",
       hero_body:
-        "Семеен магазин за мъжко облекло на пазара в Ловеч. Подбрани дрехи, честен съвет и обслужване от хора, които ви познават.",
+        "Семеен магазин за дрехи за жени и мъже на пазара в Ловеч. Подбрани модели, честен съвет и обслужване от хора, които ви познават.",
       cta_about: "За Нас",
       cta_contact: "Как Да Ни Намерите",
       marquee: [
-        "МЪЖКИ МАГАЗИН В ЛОВЕЧ",
+        "ДРЕХИ ЗА ЖЕНИ И МЪЖЕ",
         "ПРОЛЕТ / ЛЯТО 2026",
         "СЪВЕТ НА МЯСТО",
         "СЕМЕЕН БИЗНЕС",
@@ -43,7 +43,7 @@ export const translations = {
         "Всяко парче е минало нашия личен преглед. Ако ние не бихме го носили, няма да ви го предложим.",
       pillar3_title: "Честен Съвет.",
       pillar3_body:
-        "Екипът ни знае от мъжка мода. Когато попитате, ще получите мнение — не рекламно каре.",
+        "Когато попитате, ще получите честно мнение кое ви стои добре — не заучена реплика.",
       gallery_eyebrow: "Елате да Видите",
       gallery_title_1: "Добре Дошли",
       gallery_title_2: "в PLENTY",
@@ -53,8 +53,8 @@ export const translations = {
       gallery_interior: "Интериор",
       gallery_facade: "Фасада",
       gallery_entrance: "Вход",
-      map_eyebrow: "Намерете Ни",
-      map_title_1: "Пазарът",
+      map_eyebrow: "Къде да ни намерите",
+      map_title_1: "Адресът ни",
       map_title_2: "в Ловеч",
       address_label: "Адрес",
       address_value: "Търговска 60\nЛовеч, България",
@@ -82,13 +82,13 @@ export const translations = {
       eyebrow: "Ловеч, България",
       page_title: "ЗА НАС",
       header_body:
-        "PLENTY не е поредният магазин. Той е семеен бизнес с ясна цел — качествено мъжко облекло и истинско обслужване в Ловеч.",
+        "PLENTY не е поредният магазин. Той е семеен бизнес с ясна цел — качествени дрехи и истинско обслужване в Ловеч.",
       story_eyebrow: "Нашата История",
       story_title: "Основани в Ловеч с Ясна Цел",
       story_p1:
         "PLENTY се ражда от конкретно разочарование — от безличното пазаруване в мол, от дрехите, купени онлайн, които изглеждат различно на живо, и от продавачите, за които вие сте поредният клиент за деня.",
       story_p2:
-        "Решихме да направим нещо различно. Малък магазин с голямо внимание. Ограничен, но правилен избор. Екип, който знае от мъжка мода и има търпението да ви помогне да намерите точното парче.",
+        "Решихме да направим нещо различно. Малък магазин с голямо внимание. Ограничен, но правилен избор. Екип, който има търпението да ви помогне да намерите точното парче.",
       story_p3:
         "Клиентите ни се връщат — не защото нямат алтернатива, а защото тук намират внимание, знание и честна препоръка.",
       values_eyebrow: "Ценности",
@@ -146,7 +146,7 @@ export const translations = {
       contact: "Contact",
     },
     footer: {
-      tagline: "Men's clothing store at the Lovech market.",
+      tagline: "Clothing store at the Lovech market.",
       address: "60 Targovska St, Lovech 5500",
       nav: "Navigation",
       social: "Social Media",
@@ -155,14 +155,14 @@ export const translations = {
     },
     home: {
       eyebrow: "Lovech, Bulgaria",
-      hero_title_1: "MEN'S",
-      hero_title_2: "CLOTHING",
+      hero_title_1: "CLOTHING",
+      hero_title_2: "STORE",
       hero_body:
-        "A family store at the Lovech market. Carefully selected brands, honest style advice and service that remembers who you are.",
+        "A family clothing store at the Lovech market. Carefully selected pieces, honest style advice and service that remembers who you are.",
       cta_about: "About Us",
       cta_contact: "How to Find Us",
       marquee: [
-        "MEN'S STORE IN LOVECH",
+        "CLOTHING STORE IN LOVECH",
         "SPRING / SUMMER 2026",
         "PERSONAL STYLE ADVICE",
         "FAMILY BUSINESS",
@@ -178,7 +178,7 @@ export const translations = {
       pillar2_title: "Carefully Selected Brands.",
       pillar2_body: "Every item has passed our personal review. If we wouldn't wear it, we won't offer it to you.",
       pillar3_title: "Honest Advice.",
-      pillar3_body: "Our team knows menswear. When you ask, you get an opinion — not a sales pitch.",
+      pillar3_body: "When you ask, you get an honest opinion on what suits you — not a sales pitch.",
       gallery_eyebrow: "Come and See",
       gallery_title_1: "Welcome",
       gallery_title_2: "to PLENTY",
@@ -217,13 +217,13 @@ export const translations = {
       eyebrow: "Lovech, Bulgaria",
       page_title: "ABOUT US",
       header_body:
-        "PLENTY is not just another store. It's a family business with a clear purpose — quality menswear and genuine service in Lovech.",
+        "PLENTY is not just another store. It's a family business with a clear purpose — quality clothing and genuine service in Lovech.",
       story_eyebrow: "Our Story",
       story_title: "Founded in Lovech with a Clear Purpose",
       story_p1:
         "PLENTY was born out of a specific frustration — the impersonal shopping experience in malls, clothes bought online that look different in person, and salespeople for whom you are just another customer.",
       story_p2:
-        "We decided to do something different. A small store with great attention to detail. A limited but curated selection. A team that knows menswear and has the patience to help you find the right piece.",
+        "We decided to do something different. A small store with great attention to detail. A limited but curated selection. A team with the patience to help you find the right piece.",
       story_p3:
         "Our customers return — not because they have no alternative, but because they find something here that is missing elsewhere: personal attention and honest recommendations.",
       values_eyebrow: "Values",
