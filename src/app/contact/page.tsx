@@ -4,7 +4,7 @@ import { ContactPage } from "@/components/pages/contact";
 export const metadata: Metadata = {
   title: "Контакти — PLENTY Ловеч",
   description:
-    "Адрес, работно време и телефон на магазин PLENTY — на пазара в Ловеч, Търговска 60.",
+    "Заповядайте в PLENTY на пазара в Ловеч. Вижте адрес, работно време, телефон и карта до магазина.",
 };
 
 export default function Page() {
