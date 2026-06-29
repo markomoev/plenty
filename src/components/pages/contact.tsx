@@ -141,40 +141,20 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* ── Why visit ──────────────────────────────────────────────── */}
+      {/* ── Good to know ───────────────────────────────────────────── */}
       <section className="bg-surface-container-low py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <AnimateIn className="mb-16">
+          <AnimateIn>
             <p className="text-[10px] tracking-[0.35em] uppercase text-secondary font-bold mb-4">
               {t.contact.why_eyebrow}
             </p>
             <h2 className="text-4xl md:text-5xl font-black tracking-[-0.025em] uppercase leading-tight max-w-3xl">
               {t.contact.why_title_1}
-              <br />
-              {t.contact.why_title_2}
             </h2>
             <p className="text-secondary text-base mt-6 max-w-xl leading-relaxed">
               {t.contact.why_body}
             </p>
           </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {[
-              { title: t.contact.why1_title, body: t.contact.why1_body },
-              { title: t.contact.why2_title, body: t.contact.why2_body },
-              { title: t.contact.why3_title, body: t.contact.why3_body },
-            ].map((item, i) => (
-              <AnimateIn
-                key={item.title}
-                delay={i * 100}
-                className="bg-surface p-8 md:p-10 min-h-56 flex flex-col justify-between"
-              >
-                <h3 className="text-xl font-black uppercase tracking-[-0.01em] mb-6">
-                  {item.title}
-                </h3>
-                <p className="text-secondary text-sm leading-relaxed">{item.body}</p>
-              </AnimateIn>
-            ))}
-          </div>
         </div>
       </section>
     </>

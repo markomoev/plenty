@@ -106,9 +106,12 @@ export function AboutPage() {
       {/* CTA */}
       <section className="bg-inverse-surface text-white py-24 px-8 md:px-16 lg:px-24">
         <AnimateIn className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
-            {t.about.cta_title}
-          </h2>
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.025em]">
+              {t.about.cta_title}
+            </h2>
+            <p className="text-zinc-400 text-sm mt-4">{t.about.cta_body}</p>
+          </div>
           <Link
             href="/contact"
             className="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-colors duration-300 shrink-0"
