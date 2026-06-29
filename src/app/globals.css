@@ -3,17 +3,17 @@
 @theme {
   --font-sans: var(--font-inter);
 
-  --color-surface: #0c0c0c;
-  --color-on-surface: #ededed;
-  --color-primary: #ff3550;
-  --color-primary-dark: #e01030;
-  --color-primary-container: #cc1a30;
-  --color-secondary: #909090;
-  --color-inverse-surface: #1a1a1a;
-  --color-surface-container: #1c1c1c;
-  --color-surface-container-low: #121212;
-  --color-surface-dim: #2c2c2c;
-  --color-outline: #7a5a58;
+  --color-surface: #0c0b0a;
+  --color-on-surface: #f6f2ec;
+  --color-primary: #ec5c57;
+  --color-primary-dark: #c8413c;
+  --color-primary-container: #c8413c;
+  --color-secondary: #b0aaa2;
+  --color-inverse-surface: #121110;
+  --color-surface-container: #1a1817;
+  --color-surface-container-low: #121110;
+  --color-surface-dim: rgba(255, 248, 242, 0.1);
+  --color-outline: #7c766e;
   --color-outline-variant: #3a2020;
   --color-on-primary: #ffffff;
 
@@ -25,19 +25,45 @@
   --radius-2xl: 0px;
   --radius-3xl: 0px;
   --radius-full: 0px;
-
-  --animate-marquee: marquee 30s linear infinite;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* ── Design tokens ─────────────────────────────────────── */
+:root {
+  --bg-0: #0c0b0a;
+  --bg-1: #121110;
+  --bg-2: #1a1817;
+  --bg-3: #211e1c;
+  --line: rgba(255, 248, 242, 0.1);
+  --line-2: rgba(255, 248, 242, 0.2);
+  --fg: #f6f2ec;
+  --fg-2: #b0aaa2;
+  --fg-3: #7c766e;
+  --coral: #ec5c57;
+  --coral-soft: #f4847f;
+  --coral-deep: #c8413c;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --t1: 0.45s;
+  --t2: 0.7s;
+  --t3: 0.9s;
 }
 
+[data-theme="light"] {
+  --bg-0: #f4f1eb;
+  --bg-1: #faf7f1;
+  --bg-2: #ffffff;
+  --bg-3: #ffffff;
+  --line: rgba(20, 16, 12, 0.12);
+  --line-2: rgba(20, 16, 12, 0.24);
+  --fg: #15120f;
+  --fg-2: #5a554e;
+  --fg-3: #8b847a;
+  --coral: #de514c;
+  --coral-soft: #e86f6a;
+  --coral-deep: #c2403b;
+}
+
+/* ── Keyframes ─────────────────────────────────────────── */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -50,47 +76,266 @@
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Hero load animations — applied directly via className/style */
-.hero-line {
-  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Scroll-reveal — class added via JS to avoid SSR flash */
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-line,
-  .reveal {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
+@keyframes ping-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  60% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* ── Hero load animations ──────────────────────────────── */
+/* Eyebrow + minor elements: simple fade */
+.hero-fade {
+  opacity: 0;
+  transition: opacity var(--t1) var(--ease);
+  transition-delay: var(--hero-delay, 0ms);
+}
+/* Subtext, buttons, pill: fade + rise */
+.hero-rise {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--t2) var(--ease),
+    transform var(--t2) var(--ease);
+  transition-delay: var(--hero-delay, 0ms);
+}
+/* Headline clip-mask reveal */
+.hero-clip-wrap {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.hero-clip-inner {
+  display: block;
+  transform: translateY(112%);
+  transition: transform var(--t3) var(--ease);
+  transition-delay: var(--hero-delay, 0ms);
+}
+
+section.loaded .hero-fade {
+  opacity: 1;
+}
+section.loaded .hero-rise {
+  opacity: 1;
+  transform: translateY(0);
+}
+section.loaded .hero-clip-inner {
+  transform: translateY(0);
+}
+
+/* ── Scroll reveal ─────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(7px);
+  transition:
+    opacity var(--t2) var(--ease),
+    transform var(--t2) var(--ease),
+    filter var(--t2) var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* ── Nav ───────────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--coral);
+  transition: width var(--t1) var(--ease);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Scroll progress bar ───────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--coral);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ── Status pill ───────────────────────────────────────── */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg);
+  border-radius: 9999px !important;
+  white-space: nowrap;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50% !important;
+  flex-shrink: 0;
+  position: relative;
+}
+.status-dot.open {
+  background: #4ade80;
+}
+.status-dot.closed {
+  background: var(--coral);
+}
+.status-dot.open::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50% !important;
+  background: #4ade80;
+  animation: ping-dot 2.2s ease-in-out infinite;
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+.btn-primary {
+  background: var(--coral);
+  color: #fff;
+  transition:
+    box-shadow var(--t1) var(--ease),
+    filter var(--t1) var(--ease),
+    transform var(--t2) var(--ease);
+}
+.btn-primary:hover {
+  box-shadow: 0 14px 36px -8px var(--coral);
+}
+.btn-primary:active {
+  filter: brightness(0.93);
+}
+.btn-primary .btn-arrow {
+  transition: transform var(--t1) var(--ease);
+  display: inline-block;
+}
+.btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line-2);
+  color: var(--fg);
+  transition:
+    border-color var(--t1) var(--ease),
+    background var(--t1) var(--ease),
+    transform var(--t2) var(--ease);
+}
+.btn-ghost:hover {
+  border-color: var(--fg-3);
+  background: rgba(246, 242, 236, 0.05);
+}
+.btn-ghost .btn-arrow {
+  transition: transform var(--t1) var(--ease);
+  display: inline-block;
+}
+.btn-ghost:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ── Image radius override ─────────────────────────────── */
+.img-rounded {
+  border-radius: 4px !important;
+}
+
+/* ── Footer link nudge ─────────────────────────────────── */
+.footer-link {
+  display: inline-block;
+  transition: transform var(--t1) var(--ease);
+}
+.footer-link:hover {
+  transform: translateX(4px);
+}
+
+/* ── Focus ring ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--coral-soft) !important;
+  outline-offset: 3px;
+}
+
+/* ── Global base ───────────────────────────────────────── */
 * {
   border-radius: 0 !important;
 }
 
+/* Override for pill/dot shapes — class selector beats * */
+.status-pill,
+.status-pill * {
+  border-radius: 9999px !important;
+}
+.status-dot,
+.status-dot::after {
+  border-radius: 50% !important;
+}
+
 body {
   font-family: var(--font-sans), sans-serif;
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
+  background-color: var(--bg-0);
+  color: var(--fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Reduced motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade,
+  .hero-rise {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-clip-inner {
+    transform: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .status-dot.open::after {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

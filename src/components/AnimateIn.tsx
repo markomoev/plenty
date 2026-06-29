@@ -1,28 +1,26 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  /** Extra Tailwind / CSS classes passed to the wrapper div */
   className?: string;
-  /** Milliseconds to wait after the element enters the viewport before revealing */
   delay?: number;
+  style?: CSSProperties;
 };
 
 /**
- * Wraps children in a div that fades up into view when it scrolls
- * into the viewport. The `.reveal` class is added via JS so there
- * is no flash of hidden content when JS hasn't loaded yet.
+ * Wraps children in a div that blurs+fades+rises into view when it scrolls
+ * into the viewport. The `.reveal` class is applied via JS to avoid
+ * an SSR flash of hidden content.
  */
-export function AnimateIn({ children, className = "", delay = 0 }: Props) {
+export function AnimateIn({ children, className = "", delay = 0, style }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Apply the hidden state only after JS runs (prevents SSR flash)
     el.classList.add("reveal");
 
     const observer = new IntersectionObserver(
@@ -41,7 +39,7 @@ export function AnimateIn({ children, className = "", delay = 0 }: Props) {
   }, [delay]);
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} style={style}>
       {children}
     </div>
   );

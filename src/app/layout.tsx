@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bg">
+    <html lang="bg" data-theme="dark">
       <body className={`${inter.variable} antialiased`}>
         <LanguageProvider>
           <Nav />
