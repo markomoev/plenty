@@ -272,6 +272,14 @@ section.loaded .hero-clip-inner {
   border-radius: 4px !important;
 }
 
+/* ── Card hover raise ──────────────────────────────────── */
+.hover-raise {
+  transition: background var(--t1) var(--ease);
+}
+.hover-raise:hover {
+  background: var(--bg-3) !important;
+}
+
 /* ── Footer link nudge ─────────────────────────────────── */
 .footer-link {
   display: inline-block;
