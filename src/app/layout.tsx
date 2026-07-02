@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   title: "PLENTY — Магазин за Дрехи в Ловеч",
   description:
     "Семеен магазин за дрехи за жени и мъже в центъра на Ловеч. Подбрани модели, честен съвет и обслужване, което помни кои сте.",
+  icons: {
+    icon: [{ url: "data:," }],
+    apple: [{ url: "data:," }],
+  },
 };
 
 export default function RootLayout({
