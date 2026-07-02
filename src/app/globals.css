@@ -280,6 +280,16 @@ section.loaded .hero-clip-inner {
   background: var(--bg-3) !important;
 }
 
+/* ── Glass card (floating over map) ────────────────────── */
+.glass-card {
+  background: color-mix(in srgb, var(--bg-2) 85%, transparent);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--line);
+  border-radius: 4px !important;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+}
+
 /* ── Footer link nudge ─────────────────────────────────── */
 .footer-link {
   display: inline-block;

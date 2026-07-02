@@ -8,13 +8,23 @@ type Props = {
   children: ReactNode;
   variant?: "primary" | "ghost";
   className?: string;
+  /** Show the trailing arrow. Defaults to true. */
+  showArrow?: boolean;
 };
 
 /**
  * Magnetic CTA link: translates toward the cursor on pointer devices,
  * resets smoothly on leave. Coral shadow blooms on hover for primary variant.
+ * Renders a plain <a> for external / tel / mailto / hash targets and a
+ * Next <Link> for internal routes.
  */
-export function MagneticLink({ href, children, variant = "primary", className = "" }: Props) {
+export function MagneticLink({
+  href,
+  children,
+  variant = "primary",
+  className = "",
+  showArrow = true,
+}: Props) {
   const ref = useRef<HTMLAnchorElement>(null);
   const canMag = useRef(false);
 
@@ -40,18 +50,47 @@ export function MagneticLink({ href, children, variant = "primary", className = 
       "transform 0.5s var(--ease), box-shadow 0.45s var(--ease), filter 0.45s var(--ease)";
   }
 
+  const classes = `inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] ${
+    variant === "primary" ? "btn-primary" : "btn-ghost"
+  } ${className}`;
+
+  const inner = (
+    <>
+      {children}
+      {showArrow && (
+        <span className="btn-arrow" aria-hidden="true">→</span>
+      )}
+    </>
+  );
+
+  const isExternal = /^(https?:|tel:|mailto:|#)/.test(href);
+
+  if (isExternal) {
+    const isHttp = href.startsWith("http");
+    return (
+      <a
+        ref={ref}
+        href={href}
+        className={classes}
+        target={isHttp ? "_blank" : undefined}
+        rel={isHttp ? "noopener noreferrer" : undefined}
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+      >
+        {inner}
+      </a>
+    );
+  }
+
   return (
     <Link
       ref={ref}
       href={href}
-      className={`inline-flex items-center gap-2 px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] ${
-        variant === "primary" ? "btn-primary" : "btn-ghost"
-      } ${className}`}
+      className={classes}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      {children}
-      <span className="btn-arrow" aria-hidden="true">→</span>
+      {inner}
     </Link>
   );
 }

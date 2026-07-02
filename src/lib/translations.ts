@@ -91,7 +91,7 @@ export const translations = {
         "Не залагаме на една марка или на един стил. Тук има дрехи за различни хора, поводи и вкусове — за някой, който знае точно какво иска, и за някой, който просто е влязъл да разгледа.",
       story_p3:
         "С годините се научаваме да усещаме кое ще върви и кое не. Затова зад всяка дреха в магазина стои избор — нещо, което сме преценили, че си струва да предложим.",
-      values_eyebrow: "Как Работим",
+        values_eyebrow: "Как Работим",
       values_title: "Няколко Неща за Нас",
       v1_title: "Дрехи за Всеки",
       v1_body:
@@ -108,6 +108,13 @@ export const translations = {
       cta_title: "Заповядайте",
       cta_body: "Търговска 60, Ловеч. Очакваме ви от понеделник до събота.",
       cta_button: "Контакти",
+      quote: "Plenty е в Ловеч от години.",
+      visit_eyebrow: "Ловеч, Търговска 60",
+      visit_title_1: "Елате",
+      visit_title_2: "при нас",
+      visit_body:
+        "Търговска 60, Ловеч. Отбийте се от понеделник до събота — разгледайте и пробвайте на спокойствие.",
+      visit_find: "Намери магазина",
     },
     contact: {
       eyebrow: "Търговска 60, Ловеч",
@@ -151,6 +158,20 @@ export const translations = {
       why2_body: "",
       why3_title: "",
       why3_body: "",
+      call: "Обади се",
+      directions_btn: "Упътвания",
+      open_maps_btn: "Отвори в Google Maps",
+      hours_heading: "Кога сме отворени",
+      today: "Днес",
+      week_days: [
+        "Понеделник",
+        "Вторник",
+        "Сряда",
+        "Четвъртък",
+        "Петък",
+        "Събота",
+        "Неделя",
+      ],
     },
     collections: {
       eyebrow: "Стил & Вдъхновение",
@@ -270,6 +291,13 @@ export const translations = {
       cta_title: "Come In",
       cta_body: "60 Targovska St, Lovech. We're open Monday to Saturday.",
       cta_button: "Contact",
+      quote: "Plenty has been in Lovech for years.",
+      visit_eyebrow: "Lovech, 60 Targovska St",
+      visit_title_1: "Come",
+      visit_title_2: "Visit Us",
+      visit_body:
+        "60 Targovska St, Lovech. Drop by Monday to Saturday — browse and try things on at your own pace.",
+      visit_find: "Find the Store",
     },
     contact: {
       eyebrow: "60 Targovska St, Lovech",
@@ -313,6 +341,20 @@ export const translations = {
       why2_body: "",
       why3_title: "",
       why3_body: "",
+      call: "Call",
+      directions_btn: "Directions",
+      open_maps_btn: "Open in Google Maps",
+      hours_heading: "When We're Open",
+      today: "Today",
+      week_days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
     },
     collections: {
       eyebrow: "Style & Inspiration",
