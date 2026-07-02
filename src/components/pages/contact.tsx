@@ -71,14 +71,24 @@ function WeeklyHours() {
               className="text-sm font-bold uppercase tracking-[0.1em]"
               style={{ color: isToday ? "var(--coral)" : "var(--fg-2)" }}
             >
-              {isToday ? t.contact.today : day}
+              {isToday ? t.contact.now : day}
             </span>
-            <span
-              className="text-sm font-bold"
-              style={{ color: isToday ? "var(--coral)" : isSunday ? "var(--fg-3)" : "var(--fg)" }}
-            >
-              {isToday && state ? state.todayState : hours}
-            </span>
+            <div className="flex flex-col items-end gap-0.5">
+              <span
+                className="text-sm font-bold"
+                style={{ color: isToday ? "var(--coral)" : isSunday ? "var(--fg-3)" : "var(--fg)" }}
+              >
+                {isToday && state ? state.todayState : hours}
+              </span>
+              {isToday && !isSunday && (
+                <span
+                  className="text-[11px] font-bold tracking-[0.05em]"
+                  style={{ color: "var(--fg-3)" }}
+                >
+                  {t.contact.hours_value}
+                </span>
+              )}
+            </div>
           </li>
         );
       })}

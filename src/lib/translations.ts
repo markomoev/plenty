@@ -162,7 +162,7 @@ export const translations = {
       directions_btn: "Упътвания",
       open_maps_btn: "Отвори в Google Maps",
       hours_heading: "Кога сме отворени",
-      today: "Днес",
+      now: "Сега",
       week_days: [
         "Понеделник",
         "Вторник",
@@ -345,7 +345,7 @@ export const translations = {
       directions_btn: "Directions",
       open_maps_btn: "Open in Google Maps",
       hours_heading: "When We're Open",
-      today: "Today",
+      now: "Now",
       week_days: [
         "Monday",
         "Tuesday",
