@@ -7,6 +7,7 @@ import { AnimateIn } from "@/components/AnimateIn";
 import { MagneticLink } from "@/components/MagneticLink";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
 import { useParallax } from "@/hooks/useParallax";
+import { getPlentyYears, withYears } from "@/lib/plenty";
 
 const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+60,+Ловеч,+България";
@@ -20,6 +21,11 @@ export function AboutPage() {
   useHeroLoad(headerRef);
   useParallax(heroImgRef, 0.12, "center");
   useParallax(ctaImgRef, 0.14, "center");
+
+  const years = getPlentyYears();
+  const headerBody = withYears(t.about.header_body, years);
+  const storyP1 = withYears(t.about.story_p1, years);
+  const quote = withYears(t.about.quote, years);
 
   const values = [
     { number: "01", title: t.about.v1_title, body: t.about.v1_body, img: "/store/IMG_9050.JPG" },
@@ -57,7 +63,7 @@ export function AboutPage() {
                 { "--hero-delay": "320ms", color: "var(--fg-2)", lineHeight: "1.7" } as CSSProperties
               }
             >
-              {t.about.header_body}
+              {headerBody}
             </p>
           </div>
 
@@ -127,7 +133,7 @@ export function AboutPage() {
               </h2>
             </AnimateIn>
             <div className="space-y-10 text-[16px] md:text-[18px]" style={{ color: "var(--fg-2)", lineHeight: "1.8" }}>
-              <AnimateIn delay={60}><p>{t.about.story_p1}</p></AnimateIn>
+              <AnimateIn delay={60}><p>{storyP1}</p></AnimateIn>
               <AnimateIn delay={120}><p>{t.about.story_p2}</p></AnimateIn>
               <AnimateIn delay={180}><p>{t.about.story_p3}</p></AnimateIn>
             </div>
@@ -152,7 +158,7 @@ export function AboutPage() {
             className="text-3xl md:text-5xl lg:text-6xl font-black uppercase leading-[1.1]"
             style={{ letterSpacing: "-0.015em", color: "var(--fg)" }}
           >
-            {t.about.quote}
+            {quote}
           </blockquote>
         </AnimateIn>
       </section>
@@ -236,7 +242,7 @@ export function AboutPage() {
       </section>
 
       {/* ── Closing CTA band (full-bleed storefront) ─── */}
-      <section className="relative overflow-hidden text-white py-32 md:py-40 px-8 md:px-16 lg:px-24">
+      <section className="on-dark-image relative overflow-hidden py-32 md:py-40 px-8 md:px-16 lg:px-24" style={{ color: "var(--fg-on-dark)" }}>
         <div className="absolute inset-0 overflow-hidden">
           <div
             ref={ctaImgRef}
@@ -266,7 +272,7 @@ export function AboutPage() {
             <br />
             {t.about.visit_title_2}
           </h2>
-          <p className="text-sm md:text-base leading-[1.7] mb-10 max-w-md" style={{ color: "rgba(246,242,236,0.7)" }}>
+          <p className="text-sm md:text-base leading-[1.7] mb-10 max-w-md" style={{ color: "var(--fg-on-dark-muted)" }}>
             {t.about.visit_body}
           </p>
           <div className="flex flex-wrap gap-4">

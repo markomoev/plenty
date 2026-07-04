@@ -8,7 +8,7 @@ export const translations = {
       contact: "Контакти",
     },
     footer: {
-      tagline: "Магазин за дрехи на пазара в Ловеч.",
+      tagline: "Магазин за дрехи в Ловеч.",
       address: "Търговска 60, Ловеч 5500",
       nav: "Навигация",
       social: "Социални Мрежи",
@@ -82,16 +82,16 @@ export const translations = {
       eyebrow: "Ловеч, България",
       page_title: "ЗА НАС",
       header_body:
-        "Магазинът ни е в Ловеч от години. Дрехи за жени и мъже — различни марки и стилове на едно място.",
+        "Магазинът ни е в Ловеч от {years} години. Дрехи за жени и мъже — различни марки и стилове на едно място.",
       story_eyebrow: "Нашата История",
       story_title: "Отворихме в Ловеч",
       story_p1:
-        "Plenty е в Ловеч от години. За това време сме видели какво търсят хората, кое им стои добре и кое остава на закачалката — и точно това подбираме за магазина.",
+        "Plenty е в Ловеч от {years} години. За това време сме видели какво търсят хората, кое им стои добре и кое остава на закачалката — и точно това подбираме за магазина.",
       story_p2:
         "Не залагаме на една марка или на един стил. Тук има дрехи за различни хора, поводи и вкусове — за някой, който знае точно какво иска, и за някой, който просто е влязъл да разгледа.",
       story_p3:
         "С годините се научаваме да усещаме кое ще върви и кое не. Затова зад всяка дреха в магазина стои избор — нещо, което сме преценили, че си струва да предложим.",
-        values_eyebrow: "Как Работим",
+      values_eyebrow: "Как Работим",
       values_title: "Няколко Неща за Нас",
       v1_title: "Дрехи за Всеки",
       v1_body:
@@ -108,7 +108,7 @@ export const translations = {
       cta_title: "Заповядайте",
       cta_body: "Търговска 60, Ловеч. Очакваме ви от понеделник до събота.",
       cta_button: "Контакти",
-      quote: "Plenty е в Ловеч от години.",
+      quote: "Plenty е в Ловеч от {years} години.",
       visit_eyebrow: "Ловеч, Търговска 60",
       visit_title_1: "Елате",
       visit_title_2: "при нас",
@@ -194,7 +194,7 @@ export const translations = {
       contact: "Contact",
     },
     footer: {
-      tagline: "Clothing store at the Lovech market.",
+      tagline: "Clothing store in Lovech.",
       address: "60 Targovska St, Lovech 5500",
       nav: "Navigation",
       social: "Social Media",
@@ -265,11 +265,11 @@ export const translations = {
       eyebrow: "Lovech, Bulgaria",
       page_title: "ABOUT US",
       header_body:
-        "We've been in Lovech for years. Women's and men's clothing — different brands and styles in one place.",
+        "We've been in Lovech for {years} years. Women's and men's clothing — different brands and styles in one place.",
       story_eyebrow: "Our Story",
       story_title: "How We Opened in Lovech",
       story_p1:
-        "Plenty has been in Lovech for years. In that time we've seen what people look for, what suits them and what stays on the rack — and that's exactly what we pick for the shop.",
+        "Plenty has been in Lovech for {years} years. In that time we've seen what people look for, what suits them and what stays on the rack — and that's exactly what we pick for the shop.",
       story_p2:
         "We don't bet on one brand or one style. There's clothing here for different people, occasions and tastes — for someone who knows exactly what they want, and for someone who just came in to look around.",
       story_p3:
@@ -291,7 +291,7 @@ export const translations = {
       cta_title: "Come In",
       cta_body: "60 Targovska St, Lovech. We're open Monday to Saturday.",
       cta_button: "Contact",
-      quote: "Plenty has been in Lovech for years.",
+      quote: "Plenty has been in Lovech for {years} years.",
       visit_eyebrow: "Lovech, 60 Targovska St",
       visit_title_1: "Come",
       visit_title_2: "Visit Us",

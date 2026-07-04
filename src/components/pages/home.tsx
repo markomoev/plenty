@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/language";
 import { AnimateIn } from "@/components/AnimateIn";
 import { StoreStatus } from "@/components/StoreStatus";
 import { MagneticLink } from "@/components/MagneticLink";
+import { MobileStatementStrip } from "@/components/MobileStatementStrip";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
 
 export function HomePage() {
@@ -79,7 +80,7 @@ export function HomePage() {
       {/* ── Hero ─────────────────────────────────────── */}
       <section
         ref={heroRef}
-        className="relative min-h-screen -mt-20 flex flex-col justify-end overflow-hidden pb-20 px-10 md:px-24"
+        className="on-dark-image relative min-h-screen -mt-20 flex flex-col justify-end overflow-hidden pb-20 px-10 md:px-24"
       >
         <div className="absolute inset-0 overflow-hidden">
           <div
@@ -115,12 +116,12 @@ export function HomePage() {
 
           <h1 className="text-6xl md:text-8xl lg:text-[110px] font-black uppercase mb-6" style={{ letterSpacing: "-0.015em" }}>
             <span className="hero-clip-wrap" style={{ "--hero-delay": "150ms" } as CSSProperties}>
-              <span className="hero-clip-inner text-on-surface leading-none block">
+              <span className="hero-clip-inner leading-none block" style={{ color: "var(--fg-on-dark)" }}>
                 {t.home.hero_title_1}
               </span>
             </span>
             <span className="hero-clip-wrap" style={{ "--hero-delay": "270ms" } as CSSProperties}>
-              <span className="hero-clip-inner text-on-surface leading-none block">
+              <span className="hero-clip-inner leading-none block" style={{ color: "var(--fg-on-dark)" }}>
                 {t.home.hero_title_2}
               </span>
             </span>
@@ -128,7 +129,7 @@ export function HomePage() {
 
           <p
             className="hero-rise text-base md:text-lg mb-10 max-w-lg"
-            style={{ "--hero-delay": "500ms", color: "var(--fg-2)", lineHeight: "1.7" } as CSSProperties}
+            style={{ "--hero-delay": "500ms", color: "var(--fg-on-dark-muted)", lineHeight: "1.7" } as CSSProperties}
           >
             {t.home.hero_body}
           </p>
@@ -149,27 +150,32 @@ export function HomePage() {
 
       {/* ── Statement strip ──────────────────────────── */}
       <div
-        className="py-4"
         style={{
           background: "var(--bg-1)",
           borderTop: "1px solid var(--line)",
           borderBottom: "1px solid var(--line)",
         }}
       >
-        <div className="max-w-screen-2xl mx-auto px-8 md:px-16 flex flex-wrap justify-center items-center gap-y-2">
-          {strip.map((item, i) => (
-            <span
-              key={i}
-              className="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.3em]"
-              style={{ color: "var(--fg-3)" }}
-            >
-              {item}
-              {i < strip.length - 1 && (
-                <span className="mx-6 md:mx-8" style={{ color: "var(--coral)" }} aria-hidden="true">✦</span>
-              )}
-            </span>
-          ))}
+        {/* Desktop: all items in a row */}
+        <div className="hidden md:block py-4">
+          <div className="max-w-screen-2xl mx-auto px-8 md:px-16 flex flex-wrap justify-center items-center gap-y-2">
+            {strip.map((item, i) => (
+              <span
+                key={i}
+                className="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.3em]"
+                style={{ color: "var(--fg-3)" }}
+              >
+                {item}
+                {i < strip.length - 1 && (
+                  <span className="mx-6 md:mx-8" style={{ color: "var(--coral)" }} aria-hidden="true">✦</span>
+                )}
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* Mobile: rotating slideshow */}
+        <MobileStatementStrip items={strip} />
       </div>
 
       {/* ── Philosophy / Pillars ─────────────────────── */}
@@ -324,7 +330,7 @@ export function HomePage() {
       </section>
 
       {/* ── Final CTA ────────────────────────────────── */}
-      <section className="relative overflow-hidden text-white py-28 px-8 md:px-16 lg:px-24">
+      <section className="on-dark-image relative overflow-hidden py-28 px-8 md:px-16 lg:px-24" style={{ color: "var(--fg-on-dark)" }}>
         <div className="absolute inset-0 overflow-hidden">
           <div ref={ctaBgRef} className="absolute" style={{ inset: "-20%", willChange: "transform" } as CSSProperties}>
             <Image src="/store/img_9057-rework.png" alt="PLENTY store Lovech" fill className="object-cover object-center" priority />
@@ -340,7 +346,7 @@ export function HomePage() {
             <h2 className="text-4xl md:text-6xl font-black uppercase leading-tight mb-8" style={{ letterSpacing: "-0.015em" }}>
               {t.home.cta_title_1}<br />{t.home.cta_title_2}
             </h2>
-            <p className="text-sm leading-[1.7] mb-10 max-w-md" style={{ color: "rgba(246,242,236,0.7)" }}>
+            <p className="text-sm leading-[1.7] mb-10 max-w-md" style={{ color: "var(--fg-on-dark-muted)" }}>
               {t.home.cta_body}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -358,7 +364,7 @@ export function HomePage() {
             ].map((item) => (
               <div key={item.label}>
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: "var(--coral)" }}>{item.label}</p>
-                <p className="text-[13px] leading-relaxed whitespace-pre-line" style={{ color: "rgba(246,242,236,0.7)" }}>{item.value}</p>
+                <p className="text-[13px] leading-relaxed whitespace-pre-line" style={{ color: "var(--fg-on-dark-muted)" }}>{item.value}</p>
               </div>
             ))}
           </AnimateIn>

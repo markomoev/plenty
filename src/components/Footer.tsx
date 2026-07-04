@@ -28,7 +28,7 @@ export default function Footer() {
     <footer
       className="py-20 md:py-24 px-8 md:px-16 lg:px-24"
       style={{
-        background: "rgba(12,11,10,0.92)",
+        background: "var(--footer-bg)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
         borderTop: "1px solid var(--line)",
