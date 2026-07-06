@@ -59,7 +59,7 @@ export const translations = {
       address_label: "Адрес",
       address_value: "Търговска 60\nЛовеч, България",
       hours_label: "Работно Време",
-      hours_value: "Пон — Събота: 10:00 – 18:30\nНеделя: затворено",
+      hours_value: "Пон — Пет: 10:00 – 18:30\nСъбота: 10:00 – 16:00\nНеделя: затворено",
       phone_label: "Телефон",
       open_maps: "Отвори в Google Maps ↗",
       cta_eyebrow: "Ловеч, Търговска 60",
@@ -74,7 +74,7 @@ export const translations = {
       cta_phone: "Телефон",
       cta_phone_val: "+359 898 418 915",
       cta_hours: "Работно Време",
-      cta_hours_val: "Пон–Събота  10:00–18:30",
+      cta_hours_val: "Пон–Пет  10:00–18:30\nСъбота  10:00–16:00",
       cta_sunday: "Неделя",
       cta_sunday_val: "Затворено",
     },
@@ -85,6 +85,12 @@ export const translations = {
         "Магазинът ни е в Ловеч от {years} години. Дрехи за жени и мъже — различни марки и стилове на едно място.",
       story_eyebrow: "Нашата История",
       story_title: "Отворихме в Ловеч",
+      story_r1:
+        "Магазинът ни не винаги се е казвал Plenty. В началото името ни беше „Мотор“ — по марката дрехи, с която започнахме и която продавахме дълго време. С годините асортиментът ни се разрасна далеч отвъд една марка, а магазинът стана нещо повече от това, с което тръгна.",
+      story_r2:
+        "Затова решихме да променим името. Така се роди Plenty — име, което описва по-добре това, което сме днес: голям избор от дрехи за жени и мъже, различни марки и стилове на едно място.",
+      story_r3:
+        "Смениха се името и визията, но останахме същият магазин, на същото място в Ловеч, със същите хора зад щанда.",
       story_p1:
         "Plenty е в Ловеч от {years} години. За това време сме видели какво търсят хората, кое им стои добре и кое остава на закачалката — и точно това подбираме за магазина.",
       story_p2:
@@ -126,8 +132,9 @@ export const translations = {
       phone_label: "Телефон",
       phone_value: "+359 898 418 915",
       hours_label: "Работно време",
-      hours_label_detail: "Понеделник — Събота",
+      hours_label_detail: "Понеделник — Петък",
       hours_value: "10:00 – 18:30",
+      hours_saturday: "10:00 – 16:00",
       closed_label: "Неделя",
       closed_value: "Затворено",
       map_title: "На пазара в Ловеч",
@@ -242,7 +249,7 @@ export const translations = {
       address_label: "Address",
       address_value: "60 Targovska St\nLovech, Bulgaria",
       hours_label: "Opening Hours",
-      hours_value: "Mon — Sat: 10:00 – 18:30\nSunday: closed",
+      hours_value: "Mon — Fri: 10:00 – 18:30\nSat: 10:00 – 16:00\nSun: closed",
       phone_label: "Phone",
       open_maps: "Open in Google Maps ↗",
       cta_eyebrow: "Lovech, 60 Targovska St",
@@ -257,7 +264,7 @@ export const translations = {
       cta_phone: "Phone",
       cta_phone_val: "+359 898 418 915",
       cta_hours: "Opening Hours",
-      cta_hours_val: "Mon–Sat  10:00–18:30",
+      cta_hours_val: "Mon–Fri  10:00–18:30\nSat  10:00–16:00",
       cta_sunday: "Sunday",
       cta_sunday_val: "Closed",
     },
@@ -268,6 +275,12 @@ export const translations = {
         "We've been in Lovech for {years} years. Women's and men's clothing — different brands and styles in one place.",
       story_eyebrow: "Our Story",
       story_title: "How We Opened in Lovech",
+      story_r1:
+        "Our shop wasn't always called Plenty. In the beginning we were \"Motor\" — named after the clothing brand we started with and sold for a long time. Over the years our range grew far beyond a single brand, and the shop became more than what it started as.",
+      story_r2:
+        "So we decided to change the name. That's how Plenty was born — a name that better describes what we are today: a big selection of clothing for women and men, different brands and styles in one place.",
+      story_r3:
+        "The name and the look changed, but we stayed the same shop, in the same place in Lovech, with the same people behind the counter.",
       story_p1:
         "Plenty has been in Lovech for {years} years. In that time we've seen what people look for, what suits them and what stays on the rack — and that's exactly what we pick for the shop.",
       story_p2:
@@ -309,8 +322,9 @@ export const translations = {
       phone_label: "Phone",
       phone_value: "+359 898 418 915",
       hours_label: "Opening Hours",
-      hours_label_detail: "Monday — Saturday",
+      hours_label_detail: "Monday — Friday",
       hours_value: "10:00 – 18:30",
+      hours_saturday: "10:00 – 16:00",
       closed_label: "Sunday",
       closed_value: "Closed",
       map_title: "At the Lovech market",

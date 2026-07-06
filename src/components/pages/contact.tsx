@@ -6,7 +6,7 @@ import { AnimateIn } from "@/components/AnimateIn";
 import { StoreStatus } from "@/components/StoreStatus";
 import { MagneticLink } from "@/components/MagneticLink";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
-import { getStoreState } from "@/lib/hours";
+import { getStoreState, getWeekRowHours } from "@/lib/hours";
 
 const PHONE = "+359898418915";
 const mapsUrl =
@@ -55,8 +55,12 @@ function WeeklyHours() {
     <ul className="border-t" style={{ borderColor: "var(--line)" }}>
       {t.contact.week_days.map((day, i) => {
         const isSunday = i === 6;
+        const isSaturday = i === 5;
         const isToday = state?.todayIndex === i;
-        const hours = isSunday ? t.contact.closed_value : t.contact.hours_value;
+        const hours = getWeekRowHours(i, lang);
+        const todayHoursLabel = isSaturday
+          ? t.contact.hours_saturday
+          : t.contact.hours_value;
 
         return (
           <li
@@ -85,7 +89,7 @@ function WeeklyHours() {
                   className="text-[11px] font-bold tracking-[0.05em]"
                   style={{ color: "var(--fg-3)" }}
                 >
-                  {t.contact.hours_value}
+                  {todayHoursLabel}
                 </span>
               )}
             </div>

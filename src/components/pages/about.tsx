@@ -133,9 +133,12 @@ export function AboutPage() {
               </h2>
             </AnimateIn>
             <div className="space-y-10 text-[16px] md:text-[18px]" style={{ color: "var(--fg-2)", lineHeight: "1.8" }}>
-              <AnimateIn delay={60}><p>{storyP1}</p></AnimateIn>
-              <AnimateIn delay={120}><p>{t.about.story_p2}</p></AnimateIn>
-              <AnimateIn delay={180}><p>{t.about.story_p3}</p></AnimateIn>
+              <AnimateIn delay={0}><p>{t.about.story_r1}</p></AnimateIn>
+              <AnimateIn delay={60}><p>{t.about.story_r2}</p></AnimateIn>
+              <AnimateIn delay={120}><p>{t.about.story_r3}</p></AnimateIn>
+              <AnimateIn delay={180}><p>{storyP1}</p></AnimateIn>
+              <AnimateIn delay={240}><p>{t.about.story_p2}</p></AnimateIn>
+              <AnimateIn delay={300}><p>{t.about.story_p3}</p></AnimateIn>
             </div>
           </div>
         </div>
