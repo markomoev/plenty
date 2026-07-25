@@ -1,0 +1,39 @@
+---
+description: How CMS-driven sections from admin.plentybg.com plug into this site
+alwaysApply: true
+---
+
+# CMS sections contract (admin.plentybg.com)
+
+Content editors (via a separate admin app, `admin.plentybg.com`) can insert
+extra sections into gaps between this site's hardcoded sections — never by
+editing this repo.
+
+## The mechanism
+- `src/lib/sections/anchors.ts` — the anchor registry (every gap between
+  hardcoded sections on home/about/contact). Must stay byte-for-byte in
+  sync with the same file in the admin app's repo. Never rename or reuse an
+  anchor id once shipped.
+- `src/lib/sections/client.ts` — `getPageSections(page)` fetches published
+  sections from the admin app's public API (`ADMIN_API_URL` env var),
+  server-side only, and never throws (returns `{}` on any failure).
+- `app/page.tsx` / `app/about/page.tsx` / `app/contact/page.tsx` are async
+  Server Components: they call `getPageSections` and pass the result down
+  as a `sections` prop into `HomePage` / `AboutPage` / `ContactPage`
+  (which are Client Components — they cannot fetch this themselves).
+- `src/components/cms/SectionSlot.tsx` — reads `sections[anchorId]` and
+  renders each item via `src/components/cms/templates.tsx`, keyed by
+  `templateId`. Unknown template ids render nothing, never throw.
+
+## Boundaries
+- **Never edit the markup inside any existing `<section>`** in
+  `src/components/pages/{home,about,contact}.tsx`. New CMS content is
+  inserted *between* hardcoded blocks only, via
+  `<SectionSlot anchorId="..." sections={sections} />` — never a raw string
+  literal for an anchor id, and never a hardcoded layout at the call site.
+- Adding a new template requires a matching renderer in
+  `src/components/cms/templates.tsx` keyed by the exact `templateId` used
+  in the admin app's `src/lib/sections/templates.ts` — the two repos agree
+  only by convention, there's no shared package.
+- `ADMIN_API_URL` must be set (`.env.local` for dev, a Vercel env var for
+  production) or every `SectionSlot` silently renders nothing.

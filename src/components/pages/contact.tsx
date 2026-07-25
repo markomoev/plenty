@@ -7,6 +7,8 @@ import { StoreStatus } from "@/components/StoreStatus";
 import { MagneticLink } from "@/components/MagneticLink";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
 import { getStoreState, getWeekRowHours } from "@/lib/hours";
+import { SectionSlot } from "@/components/cms/SectionSlot";
+import type { PageSections } from "@/lib/sections/types";
 
 const PHONE = "+359898418915";
 const mapsUrl =
@@ -100,7 +102,12 @@ function WeeklyHours() {
   );
 }
 
-export function ContactPage() {
+type Props = {
+  /** CMS content fetched server-side by app/contact/page.tsx, keyed by anchor id. */
+  sections: PageSections;
+};
+
+export function ContactPage({ sections }: Props) {
   const { t } = useLanguage();
   const headerRef = useRef<HTMLElement>(null);
 
@@ -108,6 +115,8 @@ export function ContactPage() {
 
   return (
     <>
+      <SectionSlot anchorId="contact:top" sections={sections} />
+
       {/* ── Page header ──────────────────────────────── */}
       <section
         ref={headerRef}
@@ -143,6 +152,8 @@ export function ContactPage() {
           </p>
         </div>
       </section>
+
+      <SectionSlot anchorId="contact:header__info" sections={sections} />
 
       {/* ── Map centerpiece + floating glass card ────── */}
       <section className="px-8 md:px-16 lg:px-24 pb-24" style={{ background: "var(--bg-0)" }}>
@@ -212,6 +223,8 @@ export function ContactPage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="contact:info__hours" sections={sections} />
+
       {/* ── Live weekly hours ────────────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-1)" }}>
         <div className="max-w-2xl mx-auto">
@@ -231,6 +244,8 @@ export function ContactPage() {
           </AnimateIn>
         </div>
       </section>
+
+      <SectionSlot anchorId="contact:hours__expect" sections={sections} />
 
       {/* ── What to expect (card row) ────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-0)" }}>
@@ -285,6 +300,8 @@ export function ContactPage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="contact:expect__why" sections={sections} />
+
       {/* ── Good to know ─────────────────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-1)" }}>
         <div className="max-w-screen-2xl mx-auto">
@@ -310,6 +327,8 @@ export function ContactPage() {
           </AnimateIn>
         </div>
       </section>
+
+      <SectionSlot anchorId="contact:bottom" sections={sections} />
     </>
   );
 }

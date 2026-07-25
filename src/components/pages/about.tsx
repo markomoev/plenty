@@ -8,11 +8,18 @@ import { MagneticLink } from "@/components/MagneticLink";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
 import { useParallax } from "@/hooks/useParallax";
 import { getPlentyYears, withYears } from "@/lib/plenty";
+import { SectionSlot } from "@/components/cms/SectionSlot";
+import type { PageSections } from "@/lib/sections/types";
 
 const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+60,+Ловеч,+България";
 
-export function AboutPage() {
+type Props = {
+  /** CMS content fetched server-side by app/about/page.tsx, keyed by anchor id. */
+  sections: PageSections;
+};
+
+export function AboutPage({ sections }: Props) {
   const { t } = useLanguage();
   const headerRef = useRef<HTMLElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
@@ -36,6 +43,8 @@ export function AboutPage() {
 
   return (
     <>
+      <SectionSlot anchorId="about:top" sections={sections} />
+
       {/* ── Editorial hero ───────────────────────────── */}
       <section ref={headerRef} className="-mt-20" style={{ background: "var(--bg-1)" }}>
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 min-h-screen">
@@ -94,6 +103,8 @@ export function AboutPage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="about:header__story" sections={sections} />
+
       {/* ── Pinned-image narrative ───────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-0)" }}>
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
@@ -144,6 +155,8 @@ export function AboutPage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="about:story__quote" sections={sections} />
+
       {/* ── Pull-quote break ─────────────────────────── */}
       <section
         className="py-28 md:py-40 px-8 md:px-16 lg:px-24"
@@ -165,6 +178,8 @@ export function AboutPage() {
           </blockquote>
         </AnimateIn>
       </section>
+
+      <SectionSlot anchorId="about:quote__values" sections={sections} />
 
       {/* ── Values as alternating image + text rows ──── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-0)" }}>
@@ -244,6 +259,8 @@ export function AboutPage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="about:values__cta" sections={sections} />
+
       {/* ── Closing CTA band (full-bleed storefront) ─── */}
       <section className="on-dark-image relative overflow-hidden py-32 md:py-40 px-8 md:px-16 lg:px-24" style={{ color: "var(--fg-on-dark)" }}>
         <div className="absolute inset-0 overflow-hidden">
@@ -288,6 +305,8 @@ export function AboutPage() {
           </div>
         </AnimateIn>
       </section>
+
+      <SectionSlot anchorId="about:bottom" sections={sections} />
     </>
   );
 }

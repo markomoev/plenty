@@ -8,8 +8,15 @@ import { StoreStatus } from "@/components/StoreStatus";
 import { MagneticLink } from "@/components/MagneticLink";
 import { MobileStatementStrip } from "@/components/MobileStatementStrip";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
+import { SectionSlot } from "@/components/cms/SectionSlot";
+import type { PageSections } from "@/lib/sections/types";
 
-export function HomePage() {
+type Props = {
+  /** CMS content fetched server-side by app/page.tsx, keyed by anchor id. */
+  sections: PageSections;
+};
+
+export function HomePage({ sections }: Props) {
   const { t, lang } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
   const heroBgRef = useRef<HTMLDivElement>(null);
@@ -77,6 +84,8 @@ export function HomePage() {
 
   return (
     <>
+      <SectionSlot anchorId="home:top" sections={sections} />
+
       {/* ── Hero ─────────────────────────────────────── */}
       <section
         ref={heroRef}
@@ -148,6 +157,8 @@ export function HomePage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="home:hero__strip" sections={sections} />
+
       {/* ── Statement strip ──────────────────────────── */}
       <div
         style={{
@@ -177,6 +188,8 @@ export function HomePage() {
         {/* Mobile: rotating slideshow */}
         <MobileStatementStrip items={strip} />
       </div>
+
+      <SectionSlot anchorId="home:strip__pillars" sections={sections} />
 
       {/* ── Philosophy / Pillars ─────────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-0)" }}>
@@ -221,6 +234,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      <SectionSlot anchorId="home:pillars__gallery" sections={sections} />
 
       {/* ── Store Gallery ────────────────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-1)" }}>
@@ -268,6 +283,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      <SectionSlot anchorId="home:gallery__map" sections={sections} />
 
       {/* ── Map & Location ───────────────────────────── */}
       <section className="py-24 px-8 md:px-16 lg:px-24" style={{ background: "var(--bg-0)" }}>
@@ -329,6 +346,8 @@ export function HomePage() {
         </div>
       </section>
 
+      <SectionSlot anchorId="home:map__cta" sections={sections} />
+
       {/* ── Final CTA ────────────────────────────────── */}
       <section className="on-dark-image relative overflow-hidden py-28 px-8 md:px-16 lg:px-24" style={{ color: "var(--fg-on-dark)" }}>
         <div className="absolute inset-0 overflow-hidden">
@@ -370,6 +389,8 @@ export function HomePage() {
           </AnimateIn>
         </div>
       </section>
+
+      <SectionSlot anchorId="home:bottom" sections={sections} />
     </>
   );
 }
