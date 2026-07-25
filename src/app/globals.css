@@ -336,6 +336,12 @@ section.loaded .hero-clip-inner {
   outline-offset: 3px;
 }
 
+/* ── CMS live-preview highlight (admin iframe only) ───────── */
+.plenty-preview-highlight {
+  outline: 2px solid var(--coral);
+  outline-offset: 4px;
+}
+
 /* ── Global base ───────────────────────────────────────── */
 * {
   border-radius: 0 !important;

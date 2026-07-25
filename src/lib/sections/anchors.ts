@@ -16,8 +16,15 @@
  * actually renders anything depends solely on whether a published CMS
  * section exists for its id — adding an anchor here never requires
  * touching call sites beyond wiring in a `<SectionSlot>`.
+ *
+ * `label` is shown in the admin app's outline, in Bulgarian, phrased the
+ * way a shop owner would point at a gap on the page — never a translated
+ * developer name.
+ *
+ * Note: home has no "top" anchor. The hero uses `-mt-20` to cancel out
+ * `layout.tsx`'s `pt-20`, so anything rendered above it would be visually
+ * overlapped by the hero. The first valid gap on home is right after it.
  */
-
 export type PageId = "home" | "about" | "contact";
 
 export type Anchor = {
@@ -31,29 +38,28 @@ export type Anchor = {
 
 export const ANCHORS = [
   // ── home (Hero → Statement Strip → Pillars → Gallery → Map → Final CTA) ──
-  { id: "home:top", page: "home", index: 0, label: "Before Hero" },
-  { id: "home:hero__strip", page: "home", index: 1, label: "Hero → Statement Strip" },
-  { id: "home:strip__pillars", page: "home", index: 2, label: "Statement Strip → Pillars" },
-  { id: "home:pillars__gallery", page: "home", index: 3, label: "Pillars → Gallery" },
-  { id: "home:gallery__map", page: "home", index: 4, label: "Gallery → Visit Us / Map" },
-  { id: "home:map__cta", page: "home", index: 5, label: "Visit Us / Map → Final CTA" },
-  { id: "home:bottom", page: "home", index: 6, label: "After Final CTA" },
+  { id: "home:hero__strip", page: "home", index: 0, label: "Между героя и лентата с текст" },
+  { id: "home:strip__pillars", page: "home", index: 1, label: "Между лентата с текст и „Как работим“" },
+  { id: "home:pillars__gallery", page: "home", index: 2, label: "Между „Как работим“ и галерията" },
+  { id: "home:gallery__map", page: "home", index: 3, label: "Между галерията и адреса с картата" },
+  { id: "home:map__cta", page: "home", index: 4, label: "Между адреса с картата и последния призив за действие" },
+  { id: "home:bottom", page: "home", index: 5, label: "Най-долу на страницата" },
 
   // ── about (Header → Story → Pull-quote → Values → Closing CTA) ──
-  { id: "about:top", page: "about", index: 0, label: "Before Header" },
-  { id: "about:header__story", page: "about", index: 1, label: "Header → Story" },
-  { id: "about:story__quote", page: "about", index: 2, label: "Story → Pull-quote" },
-  { id: "about:quote__values", page: "about", index: 3, label: "Pull-quote → Values" },
-  { id: "about:values__cta", page: "about", index: 4, label: "Values → Closing CTA" },
-  { id: "about:bottom", page: "about", index: 5, label: "After Closing CTA" },
+  { id: "about:top", page: "about", index: 0, label: "Най-горе на страницата, преди заглавието" },
+  { id: "about:header__story", page: "about", index: 1, label: "Между заглавието и „Нашата история“" },
+  { id: "about:story__quote", page: "about", index: 2, label: "Между историята и цитата" },
+  { id: "about:quote__values", page: "about", index: 3, label: "Между цитата и разделите с ценности" },
+  { id: "about:values__cta", page: "about", index: 4, label: "Между ценностите и последния призив за действие" },
+  { id: "about:bottom", page: "about", index: 5, label: "Най-долу на страницата" },
 
   // ── contact (Header → Info/Map → Hours → What To Expect → Why Plenty) ──
-  { id: "contact:top", page: "contact", index: 0, label: "Before Header" },
-  { id: "contact:header__info", page: "contact", index: 1, label: "Header → Info & Map" },
-  { id: "contact:info__hours", page: "contact", index: 2, label: "Info & Map → Hours" },
-  { id: "contact:hours__expect", page: "contact", index: 3, label: "Hours → What To Expect" },
-  { id: "contact:expect__why", page: "contact", index: 4, label: "What To Expect → Why Plenty" },
-  { id: "contact:bottom", page: "contact", index: 5, label: "After Why Plenty" },
+  { id: "contact:top", page: "contact", index: 0, label: "Най-горе на страницата, преди заглавието" },
+  { id: "contact:header__info", page: "contact", index: 1, label: "Между заглавието и адреса с картата" },
+  { id: "contact:info__hours", page: "contact", index: 2, label: "Между адреса с картата и работното време" },
+  { id: "contact:hours__expect", page: "contact", index: 3, label: "Между работното време и „Какво да очаквате“" },
+  { id: "contact:expect__why", page: "contact", index: 4, label: "Между „Какво да очаквате“ и последния раздел" },
+  { id: "contact:bottom", page: "contact", index: 5, label: "Най-долу на страницата" },
 ] as const satisfies readonly Anchor[];
 
 /** Union of every valid anchor id, derived from the registry above. */

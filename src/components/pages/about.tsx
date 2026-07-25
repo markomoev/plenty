@@ -9,17 +9,14 @@ import { useHeroLoad } from "@/hooks/useHeroLoad";
 import { useParallax } from "@/hooks/useParallax";
 import { getPlentyYears, withYears } from "@/lib/plenty";
 import { SectionSlot } from "@/components/cms/SectionSlot";
-import type { PageSections } from "@/lib/sections/types";
+import { AnchorMarker } from "@/components/sections/AnchorMarker";
+import { useSections } from "@/components/sections/SectionsProvider";
 
 const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=ул.+Търговска+60,+Ловеч,+България";
 
-type Props = {
-  /** CMS content fetched server-side by app/about/page.tsx, keyed by anchor id. */
-  sections: PageSections;
-};
-
-export function AboutPage({ sections }: Props) {
+export function AboutPage() {
+  const { sections } = useSections();
   const { t } = useLanguage();
   const headerRef = useRef<HTMLElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
@@ -43,6 +40,7 @@ export function AboutPage({ sections }: Props) {
 
   return (
     <>
+      <AnchorMarker id="about:top" />
       <SectionSlot anchorId="about:top" sections={sections} />
 
       {/* ── Editorial hero ───────────────────────────── */}
@@ -103,6 +101,7 @@ export function AboutPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="about:header__story" />
       <SectionSlot anchorId="about:header__story" sections={sections} />
 
       {/* ── Pinned-image narrative ───────────────────── */}
@@ -155,6 +154,7 @@ export function AboutPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="about:story__quote" />
       <SectionSlot anchorId="about:story__quote" sections={sections} />
 
       {/* ── Pull-quote break ─────────────────────────── */}
@@ -179,6 +179,7 @@ export function AboutPage({ sections }: Props) {
         </AnimateIn>
       </section>
 
+      <AnchorMarker id="about:quote__values" />
       <SectionSlot anchorId="about:quote__values" sections={sections} />
 
       {/* ── Values as alternating image + text rows ──── */}
@@ -259,6 +260,7 @@ export function AboutPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="about:values__cta" />
       <SectionSlot anchorId="about:values__cta" sections={sections} />
 
       {/* ── Closing CTA band (full-bleed storefront) ─── */}
@@ -306,6 +308,7 @@ export function AboutPage({ sections }: Props) {
         </AnimateIn>
       </section>
 
+      <AnchorMarker id="about:bottom" />
       <SectionSlot anchorId="about:bottom" sections={sections} />
     </>
   );

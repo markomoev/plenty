@@ -25,7 +25,11 @@ export function SectionSlot({ anchorId, sections }: Props) {
       {items.map((section) => {
         const Renderer = TEMPLATE_RENDERERS[section.templateId];
         if (!Renderer) return null;
-        return <Renderer key={section.id} data={section.data} />;
+        return (
+          <div key={section.id} data-section-id={section.id}>
+            <Renderer data={section.data} />
+          </div>
+        );
       })}
     </>
   );

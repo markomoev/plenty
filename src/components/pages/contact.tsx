@@ -8,7 +8,8 @@ import { MagneticLink } from "@/components/MagneticLink";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
 import { getStoreState, getWeekRowHours } from "@/lib/hours";
 import { SectionSlot } from "@/components/cms/SectionSlot";
-import type { PageSections } from "@/lib/sections/types";
+import { AnchorMarker } from "@/components/sections/AnchorMarker";
+import { useSections } from "@/components/sections/SectionsProvider";
 
 const PHONE = "+359898418915";
 const mapsUrl =
@@ -102,12 +103,8 @@ function WeeklyHours() {
   );
 }
 
-type Props = {
-  /** CMS content fetched server-side by app/contact/page.tsx, keyed by anchor id. */
-  sections: PageSections;
-};
-
-export function ContactPage({ sections }: Props) {
+export function ContactPage() {
+  const { sections } = useSections();
   const { t } = useLanguage();
   const headerRef = useRef<HTMLElement>(null);
 
@@ -115,6 +112,7 @@ export function ContactPage({ sections }: Props) {
 
   return (
     <>
+      <AnchorMarker id="contact:top" />
       <SectionSlot anchorId="contact:top" sections={sections} />
 
       {/* ── Page header ──────────────────────────────── */}
@@ -153,6 +151,7 @@ export function ContactPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="contact:header__info" />
       <SectionSlot anchorId="contact:header__info" sections={sections} />
 
       {/* ── Map centerpiece + floating glass card ────── */}
@@ -223,6 +222,7 @@ export function ContactPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="contact:info__hours" />
       <SectionSlot anchorId="contact:info__hours" sections={sections} />
 
       {/* ── Live weekly hours ────────────────────────── */}
@@ -245,6 +245,7 @@ export function ContactPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="contact:hours__expect" />
       <SectionSlot anchorId="contact:hours__expect" sections={sections} />
 
       {/* ── What to expect (card row) ────────────────── */}
@@ -300,6 +301,7 @@ export function ContactPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="contact:expect__why" />
       <SectionSlot anchorId="contact:expect__why" sections={sections} />
 
       {/* ── Good to know ─────────────────────────────── */}
@@ -328,6 +330,7 @@ export function ContactPage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="contact:bottom" />
       <SectionSlot anchorId="contact:bottom" sections={sections} />
     </>
   );

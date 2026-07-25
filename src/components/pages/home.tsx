@@ -9,14 +9,11 @@ import { MagneticLink } from "@/components/MagneticLink";
 import { MobileStatementStrip } from "@/components/MobileStatementStrip";
 import { useHeroLoad } from "@/hooks/useHeroLoad";
 import { SectionSlot } from "@/components/cms/SectionSlot";
-import type { PageSections } from "@/lib/sections/types";
+import { AnchorMarker } from "@/components/sections/AnchorMarker";
+import { useSections } from "@/components/sections/SectionsProvider";
 
-type Props = {
-  /** CMS content fetched server-side by app/page.tsx, keyed by anchor id. */
-  sections: PageSections;
-};
-
-export function HomePage({ sections }: Props) {
+export function HomePage() {
+  const { sections } = useSections();
   const { t, lang } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
   const heroBgRef = useRef<HTMLDivElement>(null);
@@ -84,8 +81,6 @@ export function HomePage({ sections }: Props) {
 
   return (
     <>
-      <SectionSlot anchorId="home:top" sections={sections} />
-
       {/* ── Hero ─────────────────────────────────────── */}
       <section
         ref={heroRef}
@@ -157,6 +152,7 @@ export function HomePage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="home:hero__strip" />
       <SectionSlot anchorId="home:hero__strip" sections={sections} />
 
       {/* ── Statement strip ──────────────────────────── */}
@@ -189,6 +185,7 @@ export function HomePage({ sections }: Props) {
         <MobileStatementStrip items={strip} />
       </div>
 
+      <AnchorMarker id="home:strip__pillars" />
       <SectionSlot anchorId="home:strip__pillars" sections={sections} />
 
       {/* ── Philosophy / Pillars ─────────────────────── */}
@@ -235,6 +232,7 @@ export function HomePage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="home:pillars__gallery" />
       <SectionSlot anchorId="home:pillars__gallery" sections={sections} />
 
       {/* ── Store Gallery ────────────────────────────── */}
@@ -284,6 +282,7 @@ export function HomePage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="home:gallery__map" />
       <SectionSlot anchorId="home:gallery__map" sections={sections} />
 
       {/* ── Map & Location ───────────────────────────── */}
@@ -346,6 +345,7 @@ export function HomePage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="home:map__cta" />
       <SectionSlot anchorId="home:map__cta" sections={sections} />
 
       {/* ── Final CTA ────────────────────────────────── */}
@@ -390,6 +390,7 @@ export function HomePage({ sections }: Props) {
         </div>
       </section>
 
+      <AnchorMarker id="home:bottom" />
       <SectionSlot anchorId="home:bottom" sections={sections} />
     </>
   );
